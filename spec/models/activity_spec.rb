@@ -51,10 +51,24 @@ describe Activity do
                       :street   => "askjdfajk", 
                       :meal     => 0 } }
     let(:activity) {Activity.new(params) }
-    it "raises an invalid addres error" do
+    it "raises an invalid address error" do
       expect { 
         activity.save
-      }.to raise_error(InvalidAddressError)
+      }.to raise_error(Exceptions::InvalidAddressError)
     end
   end
+
+  context 'creating populates address details' do
+    let(:params) {  { :title    => "Study really hard",
+                      :street   => "Coit Tower", 
+                      :meal     => 0 } }
+    let(:activity) {Activity.create(params) }
+
+    it { activity.street.should eq("1 Telegraph Hill Boulevard") }
+    it { activity.city.should eq("San Francisco") }
+    it { activity.state.should eq("CA") }
+    it { activity.zip_code.should eq(94133) }
+    it { activity.country.should eq("United States") }
+  end
+
 end

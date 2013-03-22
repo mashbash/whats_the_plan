@@ -1,3 +1,6 @@
+class InvalidAddressError < StandardError
+end
+
 class Activity < ActiveRecord::Base
 
   attr_accessible :title, :street, :city, :state, :zip_code, :country,
@@ -10,15 +13,38 @@ class Activity < ActiveRecord::Base
   has_many :activity_plans
   has_many :plans, :through => :activity_plans
 
-  before_create :geocode
+  before_create :fetch_api_details
 
   private
-  def geocode
-    api_details = Geocoder.search(address_string).first 
-    raise InvalidAddressError if api_details.nil?
+  def fetch_api_details
+    @api_details = Geocoder.search(address_string).first
+    raise Exceptions::InvalidAddressError if @api_details.nil?
+    scrub_address_street
+    scrub_address_other
+    set_coordinates
+  end
 
-    self.latitude  = api_details.data["geometry"]["location"]["lat"]
-    self.longitude = api_details.data["geometry"]["location"]["lng"]
+  def scrub_address_street
+    name, number = ""
+    @api_details.data["address_components"].each do |c|
+      number = c["long_name"] if c["types"].include? "street_number"
+      name   = c["long_name"] if c["types"].include? "route"
+    end
+    self.street = "#{number} #{name}"
+  end
+
+  def scrub_address_other
+    @api_details.data["address_components"].each do |c|
+      self.city     = c["long_name"] if c["types"].include? "locality"
+      self.zip_code = c["long_name"] if c["types"].include? "postal_code"
+      self.state    = c["short_name"] if c["types"].include? "administrative_area_level_1"
+      self.country  = c["long_name"] if c["types"].include? "country"
+    end
+  end
+
+  def set_coordinates
+    self.latitude  = @api_details.data["geometry"]["location"]["lat"]
+    self.longitude = @api_details.data["geometry"]["location"]["lng"]
   end
 
   def address_string
