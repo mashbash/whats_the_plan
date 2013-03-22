@@ -1,8 +1,6 @@
 require 'spec_helper'
 
 describe User do
-  # let(:user) { create(:user) }
-  # user = (:user)
   describe "#valid?" do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:email) }
@@ -18,7 +16,7 @@ describe User do
   end
 
   describe "associations" do
-    it { should have_many(:plans) }
+    it { should have_many(:plans).dependent(:destroy) }
   end
 
   describe "#valid_password?" do

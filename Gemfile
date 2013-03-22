@@ -27,3 +27,5 @@ gem 'jquery-rails'
 gem 'bcrypt-ruby'
 gem 'devise'
 
+gem 'debugger'
+
