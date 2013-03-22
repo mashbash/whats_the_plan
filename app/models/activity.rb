@@ -1,25 +1,27 @@
 class Activity < ActiveRecord::Base
 
-  validates :title, :presence => true
-  validates :street, :presence => true
-  validates :city, :presence => true
-  validates :state, :presence => true
-  validates :zip_code, :presence => true
-  validates :country, :presence => true
-  validates :latitude, :presence => true
-  validates :longitude, :presence => true
-  validates :meal, :presence => true
+  attr_accessible :title, :street, :city, :state, :zip_code, :country,
+                  :longitude, :latitude, :meal
+
+  validates :title,     :presence => true
+  validates :street,    :presence => true
+  validates :meal,      :presence => true
 
   has_many :activity_plans
   has_many :plans, :through => :activity_plans
 
-  # before_save :calculate_longitude
-  # before_save :calculate_latitude
+  before_create :geocode
 
-  # def calculate_longitude
-  # end
+  private
+  def geocode
+    api_details = Geocoder.search(address_string).first 
+    raise InvalidAddressError if api_details.nil?
 
-  # def calculate_latitude
-  # end
+    self.latitude  = api_details.data["geometry"]["location"]["lat"]
+    self.longitude = api_details.data["geometry"]["location"]["lng"]
+  end
 
+  def address_string
+    "#{street}, #{city}, #{state} #{zip_code} #{country}"
+  end
 end

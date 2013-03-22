@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 describe Route do
   before do
     @los_angeles     = FakeLocation.new 34.080185,        -118.4692524, 0
