@@ -1,14 +1,3 @@
-#attributes - validations
-##test that user_id is not blank
-##test that user_id is an actual user_id
-##title cannot be blank
-#location cannot be blank if there are activities
-#start_date cannot be later than end date
-#end_date cannot be earlier than start_date
-
-#association
-#test that it has many activities through activity_plans
-#test that it belongs to user
 require 'spec_helper'
 require 'user'
   
