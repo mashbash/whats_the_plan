@@ -35,14 +35,3 @@ describe Plan do
     end  
   end
 end
-
-
-
-    # let(:plan) { create(:plan, :user_id => nil) }
-    # it "should raise an error if plan.user_id is nil" do
-    #   expect {
-    #     plan.save
-    #     }.to raise_error(ActiveRecord::RecordInvalid)
-    # end
-
-
