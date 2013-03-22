@@ -16,6 +16,9 @@ describe Plan do
 
   let(:user) { create(:user) }
 
+  subject { Plan.create :title => "asd", :user_id => user.id+1,
+            :start_date  => Time.now, :end_date => 1.day.ago }  # BugBug Why can't we use let
+
   describe "#valid?" do
     it { should validate_presence_of(:user_id) }
     it { should validate_presence_of(:title) }
@@ -38,22 +41,15 @@ describe Plan do
     end
   end
 
-  # describe "start date cannot be later than end_date" do
-  #   let(:plan) { create(:plan, :start_date => DateTime.now, :end_date => 1.day.ago, :user_id => user.id, :title => "blabla") }
-  #   it "start_date cannot be later than end_date" do
-  #     # plan.valid?
-  #     # plan.errors.full_messages.should include("End date cannot be earlier than start date")
-  #     expect {
-  #         plan.save
-  #         }.to raise_error
-  #   end  
-  # end
-
-
-
+  describe "start date cannot be later than end_date" do
+    let(:plan) { create(:plan, :start_date => DateTime.now, :end_date => 1.day.ago, :user_id => user.id, :title => "blabla") }
+    it "start_date cannot be later than end_date" do
+      expect {
+        plan.save
+        }.to raise_error
+    end  
+  end
 end
 
-
-# User.find(user_id) == []
 
 

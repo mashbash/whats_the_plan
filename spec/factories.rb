@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :user do#, :aliases => [:user1] do
+  factory :user do
     sequence(:name)        {|n| "john#{n}"}
     sequence(:email)       {|n| "user#{n}@example.com"}
     password               "password"
@@ -7,10 +7,9 @@ FactoryGirl.define do
   end
 
   factory :plan do
-    # user_id                
     sequence(:title)      {|n| "title#{n}"}
-    start_date            { DateTime.now }
-    end_date              { DateTime.now }
+    start_date            { 1.day.ago }
+    end_date              { 1.year.ago }
   end
 end    
 
