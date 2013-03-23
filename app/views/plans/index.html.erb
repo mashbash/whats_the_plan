@@ -13,3 +13,11 @@
   <% end %>
 <% end %>    
 </ul>
+
+<div>
+  <% if current_user %>
+  <%= button_to 'Create new plan', new_plan_path, :method => :get %>
+  <% else %>
+  <%= link_to 'Create new plan', new_user_registration_path %>
+  <% end %>
+</div>

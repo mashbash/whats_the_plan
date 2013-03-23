@@ -8,11 +8,8 @@ describe "Plan Page" do #, :js => true do
 
     let!(:plan) { create(:plan_with_activities) }
     before do
-      # create(:plan_with_activities)
       visit root_path  
     end
-
-    
 
     it { should have_selector('h2', text: "Recently Added Plans") }
 
