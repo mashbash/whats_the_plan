@@ -5,7 +5,6 @@ class ActivityCluster
   def initialize(destinations)
     raise ArgumentError unless destinations.is_a?(Array) && destinations.any?
     @destinations  = destinations
-    # best_cluster_and_route
   end
 
   def best_cluster_and_route
@@ -21,10 +20,10 @@ class ActivityCluster
 
   def shortest_route(starting_point)
     nonmeal_dest, meal_dest = partition_destinations(starting_point)
-    route = [starting_point]
+    route = starting_point.nil? ? [nil, meal_dest.shift] : [starting_point]
+
     until route.length == MAX_ROUTE_LENGTH do
       active_destinations = route.length.even? ? nonmeal_dest : meal_dest
-
       next_destination = closest_location(last_valid_location(route), active_destinations)
 
       if next_destination

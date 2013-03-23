@@ -39,22 +39,26 @@ describe Plan do
     context 'meals and non-meals' do
       let(:plan) { create(:plan_with_activities) }
 
-      it 'elements are either nil or Activities' do
-        plan.best_route.should eq 1
+      it 'all elements are Activities' do
+        plan.best_route.each do |element|
+          element.should be_an(Activity)
+        end
       end
     end
 
     context 'all meals' do
       let(:plan) { create(:plan_with_all_meals) }
-      it 'elements are either nil or Activities' do
-        plan.best_route.should eq 1
+      it 'elements are nil then activity' do
+        plan.best_route.map {|element| element.class}.
+          should eq([NilClass, Activity, NilClass, Activity])
       end
     end
 
     context 'no meals' do
       let(:plan) { create(:plan_with_no_meals) }
-      it 'elements are either nil or Activities' do
-        plan.best_route.should eq 1
+      it 'elements are activity then nil' do
+        plan.best_route.map {|element| element.class}.
+          should eq([Activity, NilClass, Activity, NilClass])
       end
     end
 
