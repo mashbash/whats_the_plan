@@ -1,20 +1,8 @@
-#attributes - validations
-##test that user_id is not blank
-##test that user_id is an actual user_id
-##title cannot be blank
-#location cannot be blank if there are activities
-#start_date cannot be later than end date
-#end_date cannot be earlier than start_date
-
-#association
-#test that it has many activities through activity_plans
-#test that it belongs to user
 require 'spec_helper'
-require 'user'
   
 describe Plan do
   describe "#valid?" do
-    it { should validate_presence_of(:user_id) }
+    it { should validate_presence_of(:user) }
     it { should validate_presence_of(:title) }
     it { should validate_presence_of(:start_date) }
     it { should validate_presence_of(:end_date) }
@@ -34,4 +22,42 @@ describe Plan do
       plan.should have(1).errors_on(:start_date)
     end  
   end
+
+  context '#best_route' do
+    let(:plan) { create(:plan_with_activities) }
+
+    it { should respond_to(:best_route) }
+
+    it 'returns an array of activities' do
+      plan.best_route.should be_an(Array)
+    end
+
+    it 'returns a four element array' do
+      plan.best_route.length.should eq(4)
+    end
+
+    context 'meals and non-meals' do
+      let(:plan) { create(:plan_with_activities) }
+
+      it 'elements are either nil or Activities' do
+        plan.best_route.should eq 1
+      end
+    end
+
+    context 'all meals' do
+      let(:plan) { create(:plan_with_all_meals) }
+      it 'elements are either nil or Activities' do
+        plan.best_route.should eq 1
+      end
+    end
+
+    context 'no meals' do
+      let(:plan) { create(:plan_with_no_meals) }
+      it 'elements are either nil or Activities' do
+        plan.best_route.should eq 1
+      end
+    end
+
+  end
+
 end

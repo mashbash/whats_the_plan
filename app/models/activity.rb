@@ -1,6 +1,3 @@
-class InvalidAddressError < StandardError
-end
-
 class Activity < ActiveRecord::Base
 
   attr_accessible :title, :street, :city, :state, :zip_code, :country,
@@ -11,13 +8,14 @@ class Activity < ActiveRecord::Base
   validates :meal,      :presence => true
 
   has_many :activity_plans
-  has_many :plans, :through => :activity_plans
+  has_many :plans, :through => :activity_plans, :inverse_of => :activities
 
   before_create :fetch_api_details
+  geocoded_by :full_address
 
   private
   def fetch_api_details
-    @api_details = Geocoder.search(address_string).first
+    @api_details = Geocoder.search(full_address).first
     raise Exceptions::InvalidAddressError if @api_details.nil?
     scrub_address_street
     scrub_address_other
@@ -47,7 +45,7 @@ class Activity < ActiveRecord::Base
     self.longitude = @api_details.data["geometry"]["location"]["lng"]
   end
 
-  def address_string
+  def full_address
     "#{street}, #{city}, #{state} #{zip_code} #{country}"
   end
 end

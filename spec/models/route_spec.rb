@@ -1,5 +1,19 @@
 require 'spec_helper'
 
+class FakeLocation 
+  attr_reader :meal
+
+  def initialize(latitude, longitude, meal)
+    @latitude  = latitude
+    @longitude = longitude
+    @meal      = meal
+  end
+
+  def to_coordinates
+    [@latitude, @longitude]
+  end
+end
+
 describe Route do
   before do
     @los_angeles     = FakeLocation.new 34.080185,        -118.4692524, 0
