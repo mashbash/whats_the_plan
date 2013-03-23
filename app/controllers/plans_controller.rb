@@ -21,7 +21,7 @@ class PlansController < ApplicationController
   end
 
   def show
-
+    @plan = Plan.find(params)
   end
 
 

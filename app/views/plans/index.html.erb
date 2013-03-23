@@ -1,1 +1,15 @@
+<% if current_user %>
+  <div class="welcome-message" >
+    Welcome <%= current_user.name %>
+  </div>
+<% end %>   
 
+<h2>Recently Added Plans</h2>
+
+<ul>
+<% if @plans %>
+  <% @plans.each do  |plan| %>
+  <li><%= link_to plan.title, plan_path(plan) %></li>
+  <% end %>
+<% end %>    
+</ul>
