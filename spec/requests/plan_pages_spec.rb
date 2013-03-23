@@ -20,8 +20,12 @@ describe "Plan Page", :js => true do
       before { click_link plan.title }
 
       it { should have_selector('h1', text: plan.title) }
-      it { should have_selector('.activity', text: plan.activities.first.title) }
-      it { should have_selector('.activity', text: plan.activities.last.title) }
+      it { should have_selector(".plan-activities li:nth-child(1)", text: "1") }
+      it { should have_selector(".plan-activities li:nth-child(2)", text: "2") }
+      it { should have_selector(".plan-activities li:nth-child(3)", text: "3") }
+      it { should have_selector(".plan-activities li:nth-child(4)", text: "4") }
+      it { should_not have_selector(".plan-activities li:nth-child(5)") }
+
     end
   end
 end
