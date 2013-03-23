@@ -13,7 +13,6 @@ class Plan < ActiveRecord::Base
   has_many :activity_plans
   has_many :activities, :through => :activity_plans, :inverse_of => :plans
   accepts_nested_attributes_for :activities
-  # attr_accessible :activities_attributes
 
   after_create :create_sequence
 
@@ -21,6 +20,7 @@ class Plan < ActiveRecord::Base
     route = Activity.joins(:activity_plans).
                      where(:id => activity_plans.chosen.pluck(:activity_id)).
                      order(:sequence).all
+                     
     route.length == ActivityCluster::MAX_ROUTE_LENGTH ? route : pad(route)
   end
 
