@@ -1,18 +1,37 @@
+<% if @plan.errors.full_messages %>
+<ul>
+  <% @plan.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+</ul>
+<% end %>  
+
 <%= form_for @plan do |f| %>
   <%= f.label :title %>:
   <%= f.text_field :title %><br />
-  
-  <%= f.label :location %>:
-  <%= f.text_field :location %><br />
-  
-  <%= f.label :start_date %>:
-  <%= date_select 'start_date', 'starts_on' %>
-  <%= f.text_field :start_date %><br /> 
-  
-  <%= f.label :end_date %>:
-  <%= f.text_field :end_date %><br />
 
+  <%= f.label :start_date %>:
+  <%= f.datetime_select :start_date %>
+  <br>
+
+  <%= f.label :end_date %>:
+  <%= f.datetime_select :end_date %>
+
+  <br>
+  Activities: 
   <%= f.fields_for :activities, @plan.activities.build do |activity| %>
+    <%= activity.text_field :title, placeholder: "Title" %>
+    <%= activity.text_field :street, placeholder: "Street" %>
+    <%= activity.text_field :city, placeholder: "City" %>
+    <%= activity.text_field :state, placeholder: "State" %>
+    <%= activity.text_field :zip_code, placeholder: "Zip Code" %>
+    <%= activity.text_field :country, placeholder: "Country" %>
+    <%= activity.check_box :meal %>
+    <%= activity.label "Meal" %>
+  <% end %>  
+
+    next one:
+    <%= f.fields_for :activities, @plan.activities.build do |activity| %>
     <%= activity.text_field :title, placeholder: "Title" %>
     <%= activity.text_field :street, placeholder: "Street" %>
     <%= activity.text_field :city, placeholder: "City" %>

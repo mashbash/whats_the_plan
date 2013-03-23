@@ -12,6 +12,8 @@ class Plan < ActiveRecord::Base
   belongs_to :user 
   has_many :activity_plans
   has_many :activities, :through => :activity_plans
+  accepts_nested_attributes_for :activities
+  attr_accessible :activities_attributes
 
   private
   def end_date_before_start_date
