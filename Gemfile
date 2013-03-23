@@ -22,7 +22,7 @@ group :test do
   gem 'faker'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers', '1.4.2'
-  # gem 'capybara'
+  gem 'capybara', '1.1.2'
 end
 
 gem 'jquery-rails'
