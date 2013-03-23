@@ -1,7 +1,7 @@
 <% if current_user %>
-  <div class="welcome-message" >
-    Welcome <%= current_user.name %>
-  </div>
+  <h3 class="welcome-message" >
+    Welcome, <%= current_user.name %>!
+  </h3>
 <% end %>   
 
 <h2>Recently Added Plans</h2>
@@ -13,11 +13,3 @@
   <% end %>
 <% end %>    
 </ul>
-
-<div>
-  <% if current_user %>
-  <%= button_to 'Create new plan', new_plan_path, :method => :get %>
-  <% else %>
-  <%= link_to 'Create new plan', new_user_registration_path %>
-  <% end %>
-</div>

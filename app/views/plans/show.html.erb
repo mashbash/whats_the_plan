@@ -1,12 +1,13 @@
-<h1><%= @plan.title %></h1>
+<div class="offset2">
+  <h1><%= @plan.title %></h1>
+</div>  
 
-<ul class="plan-activities">
-  <% @activities_plans.each do |activity_plan| %>
-    <li>
-      <div id = "activity position <%= activity_plan.sequence %>">
-      <%= activity_plan.activity.title %>
-      </div>
-    </li>
-  <% end %>
-</ul>
-
+<div class="activities">
+<% @plan.best_route.each_with_index do |activity, index| %>
+  <div class="span6 offset2 hero-unit">
+    <h3><%= title(activity) %></h3>
+    <p><%= street(activity) %></p>
+    <p><%= meal(index) %></p>
+  </div>
+<% end %>
+</div>
