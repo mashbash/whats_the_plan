@@ -9,7 +9,7 @@ class PlansController < ApplicationController
   end
 
   def create
-    @plan()
+    @plan
   end
     
 end
