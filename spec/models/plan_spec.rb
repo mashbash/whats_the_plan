@@ -61,7 +61,5 @@ describe Plan do
           should eq([Activity, NilClass, Activity, NilClass])
       end
     end
-
   end
-
 end

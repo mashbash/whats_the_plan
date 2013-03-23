@@ -41,6 +41,7 @@ class ActivityCluster
     distances = destinations.map do |destination|
       {location: destination, distance: self.distance_between(location, destination)}
     end
+    
     closest = distances.sort{|a, b| a[:distance] <=> b[:distance]}.first
     closest[:location] unless closest[:distance] > MAX_DISTANCE
   end

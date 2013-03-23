@@ -33,10 +33,10 @@ class Activity < ActiveRecord::Base
 
   def scrub_address_other
     @api_details.data["address_components"].each do |c|
-      self.city     = c["long_name"] if c["types"].include? "locality"
-      self.zip_code = c["long_name"] if c["types"].include? "postal_code"
+      self.city     = c["long_name"]  if c["types"].include? "locality"
+      self.zip_code = c["long_name"]  if c["types"].include? "postal_code"
       self.state    = c["short_name"] if c["types"].include? "administrative_area_level_1"
-      self.country  = c["long_name"] if c["types"].include? "country"
+      self.country  = c["long_name"]  if c["types"].include? "country"
     end
   end
 
