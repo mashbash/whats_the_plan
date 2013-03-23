@@ -19,6 +19,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'database_cleaner'
   gem 'faker'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers', '1.4.2'

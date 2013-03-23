@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(:version => 20130323003917) do
   create_table "activity_plans", :force => true do |t|
     t.integer  "plan_id",     :null => false
     t.integer  "activity_id", :null => false
-    t.integer  "sequence",    :null => false
+    t.integer  "sequence"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

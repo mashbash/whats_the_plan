@@ -7,4 +7,5 @@ class ActivityPlan < ActiveRecord::Base
   def self.chosen
     where("sequence IS NOT NULL")
   end
+
 end

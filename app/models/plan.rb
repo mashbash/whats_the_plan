@@ -13,6 +13,7 @@ class Plan < ActiveRecord::Base
   has_many :activity_plans
   has_many :activities, :through => :activity_plans, :inverse_of => :plans
   accepts_nested_attributes_for :activities
+  attr_accessible :activities_attributes
 
   after_create :create_sequence
 
@@ -22,6 +23,10 @@ class Plan < ActiveRecord::Base
                      order(:sequence).all
                      
     route.length == ActivityCluster::MAX_ROUTE_LENGTH ? route : pad(route)
+  end
+
+  def sorted_activities_plans
+    self.activity_plans.order(:sequence)
   end
 
   private
@@ -37,7 +42,7 @@ class Plan < ActiveRecord::Base
 
   def end_date_before_start_date
     if self.end_date && self.start_date && self.end_date < self.start_date
-      errors.add(:start_date, "End date cannot be earlier than start date") #validations should return true or false
+      errors.add(:start_date, "End date cannot be earlier than start date")
     end
   end
 

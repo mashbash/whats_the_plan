@@ -1,1 +1,7 @@
-<h1><%= plan.title %></h1>
+<h1><%= @plan.title %></h1>
+
+<% @activities_plans.each do |activity_plan| %>
+  <%= activity_plan.activity.title %>
+  <%= activity_plan.sequence %>
+<% end %>
+

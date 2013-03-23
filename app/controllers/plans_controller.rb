@@ -1,6 +1,7 @@
 class PlansController < ApplicationController
 
   def index
+  
     @plans = Plan.all
   end
 
@@ -14,6 +15,7 @@ class PlansController < ApplicationController
 
     if @plan.save
       render plan_path(@plan)
+      # redirect_to root_path
     else
       @plan.errors.full_messages
       render new_plan_path
@@ -21,7 +23,8 @@ class PlansController < ApplicationController
   end
 
   def show
-    @plan = Plan.find(params)
+    @plan = Plan.find(params[:id])
+    @activities_plans = @plan.sorted_activities_plans
   end
 
 
