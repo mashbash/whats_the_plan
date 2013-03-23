@@ -10,6 +10,7 @@ class ActivityCluster
   def best_cluster_and_route
     nonmeal_dest = partition_destinations.first
     best_route = Route.new(shortest_route(nonmeal_dest.shift))
+
     nonmeal_dest.each do |dest|
       route = Route.new(shortest_route(dest))
       best_route = best_route.preferred(route)

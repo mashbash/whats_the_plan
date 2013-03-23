@@ -13,35 +13,35 @@
   <%= f.text_field :title %><br />
 
   <%= f.label :start_date %>:
-  <%= f.datetime_select :start_date %>
-  <br>
+  <%= f.date_select :start_date %>
 
   <%= f.label :end_date %>:
-  <%= f.datetime_select :end_date %>
+  <%= f.date_select :end_date %>
 
-  <br>
-  Activities: 
-  <%= f.fields_for :activities, @plan.activities.build do |activity| %>
-    <%= activity.text_field :title, placeholder: "Title" %>
-    <%= activity.text_field :street, placeholder: "Street" %>
-    <%= activity.text_field :city, placeholder: "City" %>
-    <%= activity.text_field :state, placeholder: "State" %>
-    <%= activity.text_field :zip_code, placeholder: "Zip Code" %>
-    <%= activity.text_field :country, placeholder: "Country" %>
-    <%= activity.check_box :meal %>
-    <%= activity.label "Meal" %>
-  <% end %>  
+  <br><br>
+  Add Activities: 
+  <% 6.times do %>
+    <div class="activity-form">
+      <%= f.fields_for :activities, @plan.activities.build do |activity| %>
+        <div>
+          <%= activity.text_field :title, placeholder: "Title" %>
+          <%= activity.check_box :meal %>
+          <%= activity.label "Meal" %>
+        </div>
 
-    next one:
-    <%= f.fields_for :activities, @plan.activities.build do |activity| %>
-    <%= activity.text_field :title, placeholder: "Title" %>
-    <%= activity.text_field :street, placeholder: "Street" %>
-    <%= activity.text_field :city, placeholder: "City" %>
-    <%= activity.text_field :state, placeholder: "State" %>
-    <%= activity.text_field :zip_code, placeholder: "Zip Code" %>
-    <%= activity.text_field :country, placeholder: "Country" %>
-    <%= activity.check_box :meal %>
-    <%= activity.label "Meal" %>
+        <div>
+          <%= activity.text_field :street, placeholder: "Street" %>
+          <%= activity.text_field :city, placeholder: "City" %>
+        </div>
+        <div>
+          <%= activity.text_field :state, placeholder: "State" %>
+          <%= activity.text_field :zip_code, placeholder: "Zip Code" %>
+        </div>
+        <div>
+          
+        </div>
+      <% end %>  
+    </div></br>
   <% end %>
 
   <%= f.submit %>

@@ -15,7 +15,7 @@ describe "Plan Page" do #, :js => true do
 
     describe "should go the correct plans page" do
       before { click_link plan.title }
-
+      # This is very specific to the css and requires exactly 4 activities
       it { should have_selector('h1', text: plan.title) }
       it { should have_selector(".plan-activities li:nth-child(1)", id: "activity position 1") }
       it { should have_selector(".plan-activities li:nth-child(2)", id: "activity position 2") }

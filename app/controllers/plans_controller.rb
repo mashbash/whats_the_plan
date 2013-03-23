@@ -1,7 +1,5 @@
 class PlansController < ApplicationController
-
-  def index
-  
+  def index  
     @plans = Plan.all
   end
 
@@ -11,13 +9,12 @@ class PlansController < ApplicationController
 
   def create
     @plan = Plan.new(params[:plan])
-    @plan.user = current_user
+    @plan.user = current_user if current_user
 
     if @plan.save
-      render plan_path(@plan)
+      redirect_to @plan
       # redirect_to root_path
     else
-      @plan.errors.full_messages
       render new_plan_path
     end
   end

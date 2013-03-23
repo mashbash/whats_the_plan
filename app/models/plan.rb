@@ -2,10 +2,9 @@ class Plan < ActiveRecord::Base
 
   attr_accessible :start_date, :end_date, :title
 
-  validates :user, :presence => true
   validates :title, :presence => true
   validates :start_date, :presence => true
-  validates :end_date, :presence => true
+  validates :end_date,   :presence => true
 
   validate :end_date_before_start_date
 
