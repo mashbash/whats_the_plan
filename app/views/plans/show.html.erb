@@ -3,8 +3,9 @@
 <ul class="plan-activities">
   <% @activities_plans.each do |activity_plan| %>
     <li>
+      <div id = "activity position <%= activity_plan.sequence %>">
       <%= activity_plan.activity.title %>
-      <%= activity_plan.sequence %>
+      </div>
     </li>
   <% end %>
 </ul>

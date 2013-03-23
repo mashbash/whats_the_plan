@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Plan Page", :js => true do
+describe "Plan Page" do #, :js => true do
 
   subject { page }
 
@@ -20,12 +20,11 @@ describe "Plan Page", :js => true do
       before { click_link plan.title }
 
       it { should have_selector('h1', text: plan.title) }
-      it { should have_selector(".plan-activities li:nth-child(1)", text: "1") }
-      it { should have_selector(".plan-activities li:nth-child(2)", text: "2") }
-      it { should have_selector(".plan-activities li:nth-child(3)", text: "3") }
-      it { should have_selector(".plan-activities li:nth-child(4)", text: "4") }
+      it { should have_selector(".plan-activities li:nth-child(1)", id: "activity position 1") }
+      it { should have_selector(".plan-activities li:nth-child(2)", id: "activity position 2") }
+      it { should have_selector(".plan-activities li:nth-child(3)", id: "activity position 3") }
+      it { should have_selector(".plan-activities li:nth-child(4)", id: "activity position 4") }
       it { should_not have_selector(".plan-activities li:nth-child(5)") }
-
     end
   end
 end
