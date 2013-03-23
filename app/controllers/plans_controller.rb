@@ -9,7 +9,22 @@ class PlansController < ApplicationController
   end
 
   def create
-    @plan
+    @plan = Plan.new(params[:plan])
+    @plan.user = current_user
+
+    if @plan.save
+      render plan_path(@plan)
+    else
+      @plan.errors.full_messages
+      render new_plan_path
+    end
   end
-    
+
+  def show
+
+  end
+
+
 end
+
+

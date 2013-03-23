@@ -13,6 +13,7 @@ class Plan < ActiveRecord::Base
   has_many :activity_plans
   has_many :activities, :through => :activity_plans, :inverse_of => :plans
   accepts_nested_attributes_for :activities
+  # attr_accessible :activities_attributes
 
   after_create :create_sequence
 
