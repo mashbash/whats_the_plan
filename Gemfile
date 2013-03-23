@@ -4,6 +4,7 @@ gem 'rails', '3.2.12'
 gem 'pg'
 gem 'geocoder'
 gem 'redis'
+gem 'handlebars-rails', :git => 'git://github.com/kolo/handlebars-rails.git'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

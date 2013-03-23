@@ -20,9 +20,9 @@
 
   <br><br>
   Add Activities: 
-  <% 6.times do %>
-    <div class="activity-form">
-      <%= f.fields_for :activities, @plan.activities.build do |activity| %>
+  <div class="activity-form-container">
+    <%= f.fields_for :activities, @plan.activities do |activity| %>
+      <div class="activity-form">
         <div>
           <%= activity.text_field :title, placeholder: "Title" %>
           <%= activity.check_box :meal %>
@@ -37,12 +37,12 @@
           <%= activity.text_field :state, placeholder: "State" %>
           <%= activity.text_field :zip_code, placeholder: "Zip Code" %>
         </div>
-        <div>
-          
-        </div>
-      <% end %>  
-    </div></br>
-  <% end %>
+      </div>
+    <% end %>  
+  </div>
+
+  <a class="add-activity" href="#">Add another activity</a>
+  </br>
 
   <%= f.submit %>
 <% end %>    

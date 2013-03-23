@@ -5,6 +5,7 @@ class PlansController < ApplicationController
 
   def new
     @plan = Plan.new
+    @plan.activities.build
   end
 
   def create
