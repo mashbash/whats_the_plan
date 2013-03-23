@@ -5,12 +5,17 @@ gem 'pg'
 gem 'geocoder'
 gem 'redis'
 gem 'handlebars-rails', :git => 'git://github.com/kolo/handlebars-rails.git'
+gem 'thin'
 
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
   gem 'uglifier', '>= 1.0.3'
+  gem 'sass-rails'
+  gem "therubyracer"
+end
+
+group :development do
+  gem 'quiet_assets'
 end
 
 group :development, :test do
@@ -33,3 +38,5 @@ gem 'devise'
 
 gem 'debugger'
 
+gem "less-rails" 
+gem "twitter-bootstrap-rails"

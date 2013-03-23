@@ -1,0 +1,24 @@
+/*
+  =require twitter-bootstrap-static/bootstrap
+
+  Use Font Awesome icons (default)
+  To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
+  =require twitter-bootstrap-static/fontawesome
+  */
+
+body {
+  padding-top: 40px;
+}
+
+.hero-unit {
+  padding: 10px;
+  float: none;
+}
+
+.span6.offset2.hero-unit:nth-child(odd) {
+  background: #B0F8FB;
+}
+
+.span6.offset2.hero-unit:nth-child(even) {
+  background: #FFD6B2;
+}
