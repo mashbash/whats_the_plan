@@ -13,19 +13,33 @@ var plan = {
   },
 
   listen: function() {
+    var self = this;
     $('.new-close-icon').on('click', function(e){
       e.preventDefault();
       $(this).parents('.new-activity').remove();
     });
 
-    // $('.create-plan').on('click', function(e){
-    //   $.post("/plans", )
+    $('.create-plan').on('click', function(e){
+      $.post("/plans", self.params(), "json").done(function(){});
+    });
   },
 
-  submit: function() {
-    //send data to server 
-    //redirect
+  params: function() {
+    return {plan: { title: this.title(), activities_attributes: this.activitesAttrs()} }
   },
+
+  activitesAttrs: function() {
+    var data = {}
+    for (i in this.activities) {
+      var key = (i).toString();
+      data[key] = this.activities[i].params();
+    }
+    return data;
+  },
+
+  title: function() {
+    return $('#title').val();
+  }
 };
 
 var form = {
@@ -55,8 +69,8 @@ var form = {
   },
 
   data: function() {
-    var mealVal = $('div.switch-on').length == 1;
-    return {destination: this.destination.val(), address: this.address.val(), meal: mealVal};
+    var mealBool = $('div.switch-on').length == 1;
+    return {destination: this.destination.val(), address: this.address.val(), meal: mealBool};
   },
 
   reset: function() {
@@ -79,6 +93,20 @@ Activity.prototype.render = function() {
 Activity.prototype.attrs = function() {
   return {destination: this.destination, meal: this.meal, address: this.address}
 };
+
+Activity.prototype.params = function() {
+  return {destination: this.destination, meal: this.mealval(), address: this.address}
+};
+
+Activity.prototype.mealVal = function() {
+  if (this.meal){
+    return 1;
+  } else {
+    return 0;
+  }
+};
+
+
 
 jQuery(document).ready(function($) {
   $('#title').focus(); 

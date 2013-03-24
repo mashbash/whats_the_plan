@@ -10,6 +10,7 @@ class PlansController < ApplicationController
   end
 
   def create
+    debugger
     @plan = Plan.new(params[:plan])
     @plan.user = current_user if current_user
 
