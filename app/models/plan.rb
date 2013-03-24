@@ -26,15 +26,9 @@ class Plan < ActiveRecord::Base
     self.activity_plans.order(:sequence)
   end
 
-  private
+  # private
   def create_sequence
-    activity_cluster = ActivityCluster.new(self.activities)
-    best_route = activity_cluster.best_cluster_and_route
-
-    best_route.destinations.each_with_index do |activity, index|
-      activity.activity_plans.where(:plan_id => self.id).first.
-               update_attributes(:sequence => index + 1) if activity
-    end
+    PlanWorker.perform_async(self.id)
   end
 
   def end_date_before_start_date

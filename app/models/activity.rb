@@ -46,6 +46,6 @@ class Activity < ActiveRecord::Base
   end
 
   def full_address
-    "#{street}, #{city}, #{state} #{zip_code} #{country}"
+    "#{title}, #{street}"
   end
 end
