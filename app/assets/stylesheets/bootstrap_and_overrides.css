@@ -59,7 +59,6 @@ body {
 }
 
 /* plan creation */
-
 .switch-label {
   display: inline-block;
   font-weight: bold;
@@ -71,7 +70,7 @@ body {
 }
 
 .new-plan {
-  visibility: hidden;
+  display: none;
 }
 
 .new-activity {
@@ -98,4 +97,20 @@ body {
 .activity-icon {
   margin: 10px 20px 0 0;
   float: right;
+}
+
+.activity-form input {
+  margin-right: 2em;
+}
+
+.btn.create-plan {
+  display: none;
+}
+
+input.error {
+  box-shadow: 0 0 5px red;
+}
+
+input.error:focus {
+  box-shadow: 0 0 5px red;
 }
