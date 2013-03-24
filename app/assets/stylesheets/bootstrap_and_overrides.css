@@ -36,34 +36,78 @@ body {
   vertical-align: middle;
 }
 
+.navbar-fixed-top {
+  position: fixed;
+  top: 0;
+}
+
 .btn a{
   text-decoration: none;
   color: black;
 }
 
-.span6.user-plans {
-  background-color: #FFD6B2;
-  border-radius: 5px;  
-}
+/*---- Users#show ----*/
 
-.span6.user-past-plans {
+.plan-header, .plan-list {
   background-color: #DBFFB2;
-  border-radius: 5px;
 }
 
-.span6 li {
-  list-style-type: none;
+.past-plan-header, .past-plan-list {
+  background-color:  #FFD6B2;
 }
 
-.span6 li a {
+.plan-header, .past-plan-header {
+  padding: 2px 0px 2px 10px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px
+}
+
+.plan-list, .past-plan-list {
+  padding: 10px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.plan-list td, .past-plan-list td {
+  font-size: 16px;
   color: #15568F;
 }
 
-<<<<<<< HEAD
+
 .navbar-fixed-top {
   position: fixed;
   top: 0;
+
+th {
+  font-size: 18px;
 }
+
+ul.plan-header, ul.past-plan-header {
+  margin-left: 0px;
+}
+
+
+.span6 td a {
+  color: #15568F;
+}
+
+.profile-welcome {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+
+.profile-welcome a {
+  color: #0C2542;
+}
+
+.plan-list.table tbody tr:hover td{ background-color: #EFFFED; }
+.plan-list.table tbody tr:hover th{ background-color: #DBFFB2; } 
+
+.past-plan-list.table tbody tr:hover td{ background-color: #FCECDE; }
+.past-plan-list.table tbody tr:hover th{ background-color: #FFD6B2; }
+
+
 
 /*---- Plans#index ----*/
 
@@ -79,6 +123,7 @@ body {
   border-radius: 10px;
   width: 600px;
 }
+
 
 
 /* plan creation */
@@ -137,3 +182,4 @@ input.error {
 input.error:focus {
   box-shadow: 0 0 5px red;
 }
+

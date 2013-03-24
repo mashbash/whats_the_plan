@@ -1,30 +1,52 @@
-<h1> Hi, <%= @user.name %>! </h1>
+<div class='profile-welcome offset1'>
+<h1> Hey, <%= @user.name %>! </h1>
 <h4> You have <%= pluralize(@user.upcoming_plans.length, 'plan') %> coming up! </h4>
 <h4> You have <%= pluralize(@user.past_plans.length, 'past plan') %>, <%= link_to "create more!", new_plan_path%></h4>
-
-
+</div>
 
 <div class="row">
-  <div class="span6 user-plans">
-    <ul>
+  <div class="span5 offset1 user-plans">
+    <ul class="plan-header">
     <% unless @user.upcoming_plans.empty? %>
       <h3>Upcoming plans:</h3>
     <% end %>
+    </ul>
+    <table class="plan-list table table-hover">
+      <tr>
+        <th> Date </th>
+        <th> Plan Name </th>
+      </tr>
+      <tbody>
       <% @user.upcoming_plans.each do |plan| %>
-        <li><%= link_to plan.title, plan %></li>
-      <% end %>  
-    <ul>  
+        <tr>
+          <td><%= plan.start_date.strftime("%B %d, %Y") %></td>
+          <td><%= link_to plan.title, plan %></td>
+        </tr>
+      <% end %>
+      </tbody>  
+    </table>  
   </div>
 
-  <div class="span6 user-past-plans">
-    <ul>
+  <div class="span5 user-past-plans">
+    <ul class="past-plan-header">
     <% unless @user.past_plans.empty? %>
       <h3>Past plans:</h3>
     <% end %>
+    </ul>
+    <table class="past-plan-list table table-hover">
+      <tr>
+        <th> Completed Date </th>
+        <th> Plan Name </th>
+      </tr>
+      <tbody>  
       <% @user.past_plans.each do |plan| %>
-        <li><%= link_to plan.title, plan %></li>
+        <tr>
+          <td><%= plan.end_date.strftime("%B %d, %Y") %></td>
+          <td><%= link_to plan.title, plan %></td>
+        </tr>  
       <% end %>  
-    <ul>  
+      </tbody>  
+    </table>
   </div>
 </div>
 
