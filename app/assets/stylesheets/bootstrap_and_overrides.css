@@ -9,6 +9,7 @@
 body {
   padding-top: 40px;
   background-image:url('/assets/cartographer.png');
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .hero-unit {
@@ -57,3 +58,24 @@ body {
 .span6 li a {
   color: #15568F;
 }
+
+.navbar-fixed-top {
+  position: fixed;
+  top: 0;
+}
+
+/*---- Plans#index ----*/
+
+.listofplans li {
+  list-style-type: none;
+  font-size: 20px;
+  padding-top: 0.7em;
+}
+
+.listofplans {
+  border: 2px dotted #444;
+  padding: 10px;
+  border-radius: 10px;
+  width: 600px;
+}
+

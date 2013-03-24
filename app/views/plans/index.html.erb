@@ -6,10 +6,12 @@
 
 <h2>Recently Added Plans</h2>
 
-<ul>
-<% if @plans %>
-  <% @plans.each do  |plan| %>
-  <li><%= link_to plan.title, plan_path(plan) %></li>
-  <% end %>
-<% end %>    
-</ul>
+<div class="listofplans">
+  <ul>
+  <% if @plans %>
+    <% @plans.last(13).reverse.each do  |plan| %>
+    <li><%= link_to plan.title, plan_path(plan) %></li>
+    <% end %>
+  <% end %>    
+  </ul>
+</div>
