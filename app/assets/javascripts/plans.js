@@ -18,8 +18,8 @@ var plan = {
       $(this).parents('.new-activity').remove();
     });
 
-    $('.create-plan').on('click', function(e){
-      $.post("/plans", )
+    // $('.create-plan').on('click', function(e){
+    //   $.post("/plans", )
   },
 
   submit: function() {
