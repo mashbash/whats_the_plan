@@ -57,3 +57,45 @@ body {
 .span6 li a {
   color: #15568F;
 }
+
+/* plan creation */
+
+.switch-label {
+  display: inline-block;
+  font-weight: bold;
+  margin: 0 0.5em 0 0;
+}
+
+.switch {
+  display: inline-block;
+}
+
+.new-plan {
+  visibility: hidden;
+}
+
+.new-activity {
+  background: #B0F8FB;
+  padding: 0.25em 1em;
+  margin-bottom: 1em;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.new-activity.meal {
+  background: #FFD6B2;
+}
+
+.new-close-icon {
+  float: right;
+  text-decoration: none;
+  background: #fff;
+  padding: 0.2em;
+}
+
+.activity-icon {
+  margin: 10px 20px 0 0;
+  float: right;
+}

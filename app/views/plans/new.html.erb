@@ -8,44 +8,24 @@
 </ul>
 <% end %>  
 
-<%= form_for @plan do |f| %>
-  <%= f.label :title %>:
-  <%= f.text_field :title %><br />
-
-  <%= f.label :start_date %>:
-  <%= f.date_select :start_date %>
-
-  <%= f.label :end_date %>:
-  <%= f.date_select :end_date %>
-
-  <br><br>
-  Add Activities: 
-  <div class="activity-form-container">
-    <%= f.fields_for :activities, @plan.activities do |activity| %>
-      <div class="activity-form">
-        <div>
-          <%= activity.text_field :title, placeholder: "Title" %>
-          <%= activity.check_box :meal %>
-          <%= activity.label "Meal" %>
-        </div>
-
-        <div>
-          <%= activity.text_field :street, placeholder: "Street" %>
-          <%= activity.text_field :city, placeholder: "City" %>
-        </div>
-        <div>
-          <%= activity.text_field :state, placeholder: "State" %>
-          <%= activity.text_field :zip_code, placeholder: "Zip Code" %>
-        </div>
-      </div>
-    <% end %>  
+<form>
+  <input id="title" name="title" placeholder="Title your plan" type="text" /><br />
+  
+  <h3>Add Activities</h3> 
+  <div class="activity-form">
+    <input id="destination" name="destination" placeholder="Destination" type="text" />
+    <input id="address" name="address" placeholder="Adress" type="text"/>
+    <div>
+      <p class="switch-label">Will this activity involve a meal?</p>
+      <div class="switch" data-on-label="Yes" data-off-label="No">
+        <input id="meal" name="meal" type="checkbox" value="1" />
+      </div>          
+    </div>
   </div>
+  <input class="btn btn-primary add-activity" name="commit" type="submit" value="Add Activity" />
+</form>
 
-  <a class="add-activity" href="#">Add another activity</a>
-  </br>
-
-  <%= f.submit %>
-<% end %>    
-
-
+<div class="new-plan"> 
+<h3>Your Plan</h3>
+</div>
 
