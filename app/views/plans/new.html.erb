@@ -14,7 +14,7 @@
   <h3>Add Activities</h3> 
   <div class="activity-form">
     <input id="destination" name="destination" placeholder="Destination" type="text" />
-    <input id="address" name="address" placeholder="Adress" type="text"/>
+    <input id="address" name="address" placeholder="Address" type="text"/>
     <div>
       <p class="switch-label">Will this activity involve a meal?</p>
       <div class="switch" data-on-label="Yes" data-off-label="No">
@@ -22,10 +22,12 @@
       </div>          
     </div>
   </div>
-  <input class="btn btn-primary add-activity" name="commit" type="submit" value="Add Activity" />
+  <input class="btn add-activity" name="commit" type="submit" value="Add Activity" />
 </form>
 
 <div class="new-plan"> 
-<h3>Your Plan</h3>
+  <h3>Your Plan</h3>
 </div>
+<%= link_to "Create!", plans_path, :method => :post, class: "btn btn-primary create-plan" %>
+
 
