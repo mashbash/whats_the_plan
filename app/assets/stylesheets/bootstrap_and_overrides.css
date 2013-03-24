@@ -41,7 +41,7 @@ body {
   top: 0;
 }
 
-.btn a{
+.btn a {
   text-decoration: none;
   color: black;
 }
@@ -68,6 +68,7 @@ body {
   border-bottom-right-radius: 8px;
 }
 
+
 .plan-list td, .past-plan-list td {
   font-size: 16px;
   color: #15568F;
@@ -77,6 +78,7 @@ body {
 .navbar-fixed-top {
   position: fixed;
   top: 0;
+}
 
 th {
   font-size: 18px;
@@ -86,7 +88,6 @@ ul.plan-header, ul.past-plan-header {
   margin-left: 0px;
 }
 
-
 .span6 td a {
   color: #15568F;
 }
@@ -95,6 +96,7 @@ ul.plan-header, ul.past-plan-header {
   margin-top: 20px;
   margin-bottom: 50px;
 }
+
 
 
 .profile-welcome a {
