@@ -2,10 +2,16 @@ require 'spec_helper'
   
 describe Plan do
   describe "#valid?" do
-    it { should validate_presence_of(:user) }
     it { should validate_presence_of(:title) }
-    it { should validate_presence_of(:start_date) }
-    it { should validate_presence_of(:end_date) }
+
+    describe 'start_date and end_date values' do
+      let(:plan) { create(:plan_with_activities, :start_date => nil, :end_date => nil) }
+
+      it 'sets default start_date and end_date to today and tomorrow if none are provided' do
+        plan.start_date.should eq Date.today
+        plan.end_date.should eq Date.tomorrow
+      end
+    end
   end  
 
   describe "associations" do

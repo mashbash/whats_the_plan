@@ -1,3 +1,5 @@
+<h1>Create new plan</h1>
+
 <% if @plan.errors.full_messages %>
 <ul>
   <% @plan.errors.full_messages.each do |error| %>
@@ -6,44 +8,26 @@
 </ul>
 <% end %>  
 
-<%= form_for @plan do |f| %>
-  <%= f.label :title %>:
-  <%= f.text_field :title %><br />
+<form>
+  <input id="title" name="title" placeholder="Title your plan" type="text" /><br />
+  
+  <h3>Add Activities</h3> 
+  <div class="activity-form">
+    <input id="destination" name="destination" placeholder="Destination" type="text" />
+    <input id="address" name="address" placeholder="Address" type="text"/>
+    <div>
+      <p class="switch-label">Will this activity involve a meal?</p>
+      <div class="switch" data-on-label="Yes" data-off-label="No">
+        <input id="meal" name="meal" type="checkbox" value="1" />
+      </div>          
+    </div>
+  </div>
+  <input class="btn add-activity" name="commit" type="submit" value="Add Activity" />
+</form>
 
-  <%= f.label :start_date %>:
-  <%= f.datetime_select :start_date %>
-  <br>
-
-  <%= f.label :end_date %>:
-  <%= f.datetime_select :end_date %>
-
-  <br>
-  Activities: 
-  <%= f.fields_for :activities, @plan.activities.build do |activity| %>
-    <%= activity.text_field :title, placeholder: "Title" %>
-    <%= activity.text_field :street, placeholder: "Street" %>
-    <%= activity.text_field :city, placeholder: "City" %>
-    <%= activity.text_field :state, placeholder: "State" %>
-    <%= activity.text_field :zip_code, placeholder: "Zip Code" %>
-    <%= activity.text_field :country, placeholder: "Country" %>
-    <%= activity.check_box :meal %>
-    <%= activity.label "Meal" %>
-  <% end %>  
-
-    next one:
-    <%= f.fields_for :activities, @plan.activities.build do |activity| %>
-    <%= activity.text_field :title, placeholder: "Title" %>
-    <%= activity.text_field :street, placeholder: "Street" %>
-    <%= activity.text_field :city, placeholder: "City" %>
-    <%= activity.text_field :state, placeholder: "State" %>
-    <%= activity.text_field :zip_code, placeholder: "Zip Code" %>
-    <%= activity.text_field :country, placeholder: "Country" %>
-    <%= activity.check_box :meal %>
-    <%= activity.label "Meal" %>
-  <% end %>
-
-  <%= f.submit %>
-<% end %>    
-
+<div class="new-plan"> 
+  <h3>Your Plan</h3>
+</div>
+<%= link_to "Create!", '#', class: "btn btn-primary create-plan" %>
 
 

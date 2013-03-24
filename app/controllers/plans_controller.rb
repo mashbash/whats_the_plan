@@ -6,25 +6,24 @@ class PlansController < ApplicationController
 
   def new
     @plan = Plan.new
+    @plan.activities.build
   end
 
   def create
     @plan = Plan.new(params[:plan])
-    @plan.user = current_user
+    @plan.user = current_user if current_user
 
     if @plan.save
-      render plan_path(@plan)
+      render :json => { plan: @plan }
     else
-      @plan.errors.full_messages
-      render new_plan_path
+      render :json => { plan: @plan, activities: @plan.activities }
     end
   end
 
   def show
-    @plan = Plan.find(params)
+    @plan = Plan.find(params[:id])
+    @activities_plans = @plan.sorted_activities_plans.limit(4)
   end
-
-
 end
 
 

@@ -1,22 +1,20 @@
 <!DOCTYPE html>
+
 <html>
 <head>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+
+
   <title>WhatsThePlan</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div>
-  <% if current_user %>
-  <%= link_to 'logout', destroy_user_session_path, :method => :delete %>
-  <% else %>
-  <%= link_to 'Signup', new_user_registration_path %>
-  <%= link_to 'Signin', new_user_session_path %>  
-  <% end %>
-</div>
-
-<%= yield %>
-
+  <%= render :partial => 'layouts/header' %>
+  
+  <div class='container'>
+    <%= yield %>
+  </div>
 </body>
 </html>

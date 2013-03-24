@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Users Page" do
+describe "Users Pages" do
 
   subject { page }
 
@@ -45,7 +45,17 @@ describe "Users Page" do
       it { should have_selector('h2', text: "Recently Added Plans") }
       it { should have_selector('div.welcome-message',
                                 text: "Welcome #{user.name}") }
-      it { should have_link('logout') }
+      it { should have_button('Create new plan') }
+      it { should have_link('logout', href: destroy_user_session_path) }
+
+      let(:create_new_plan) { "Create new plan"}
+
+      describe "after clicking the 'Create new plan button'" do
+        before { click_button create_new_plan }
+
+        it { should have_selector('h1', text: "Create new plan") }
+        it { should have_selector('.new_plan') }
+      end
     end
   end
 end

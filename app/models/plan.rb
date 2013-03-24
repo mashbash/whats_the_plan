@@ -1,19 +1,16 @@
 class Plan < ActiveRecord::Base
 
-  attr_accessible :start_date, :end_date, :title
+  attr_accessible :start_date, :end_date, :title, :activities_attributes
 
-  validates :user, :presence => true
   validates :title, :presence => true
-  validates :start_date, :presence => true
-  validates :end_date, :presence => true
-
-  validate :end_date_before_start_date
+  validate  :end_date_before_start_date
 
   belongs_to :user 
   has_many :activity_plans
   has_many :activities, :through => :activity_plans, :inverse_of => :plans
   accepts_nested_attributes_for :activities
 
+  before_validation :default_dates, :unless => Proc.new { self.start_date }
   after_create :create_sequence
 
   def best_route
@@ -24,20 +21,18 @@ class Plan < ActiveRecord::Base
     route.length == ActivityCluster::MAX_ROUTE_LENGTH ? route : pad(route)
   end
 
-  private
-  def create_sequence
-    activity_cluster = ActivityCluster.new(self.activities)
-    best_route = activity_cluster.best_cluster_and_route
+  def sorted_activities_plans
+    self.activity_plans.order(:sequence)
+  end
 
-    best_route.destinations.each_with_index do |activity, index|
-      activity.activity_plans.where(:plan_id => self.id).first.
-               update_attributes(:sequence => index + 1) if activity
-    end
+  # private
+  def create_sequence
+    PlanWorker.perform_async(self.id)
   end
 
   def end_date_before_start_date
     if self.end_date && self.start_date && self.end_date < self.start_date
-      errors.add(:start_date, "End date cannot be earlier than start date") #validations should return true or false
+      errors.add(:start_date, "End date cannot be earlier than start date")
     end
   end
 
@@ -49,5 +44,10 @@ class Plan < ActiveRecord::Base
     (1..ActivityCluster::MAX_ROUTE_LENGTH).map do |n|
       activities.find { |activity| activity_sequence(activity) == n }
     end
+  end
+
+  def default_dates
+    self.start_date = Date.today
+    self.end_date = Date.tomorrow
   end
 end
