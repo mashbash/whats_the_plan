@@ -7,6 +7,7 @@ gem 'redis'
 gem 'handlebars-rails', :git => 'git://github.com/kolo/handlebars-rails.git'
 gem 'thin'
 gem "font-awesome-rails"
+gem "oauth-plugin", "~> 0.4.0"
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'

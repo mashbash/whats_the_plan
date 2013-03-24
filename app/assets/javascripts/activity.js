@@ -2,6 +2,11 @@ function Activity(data) {
   this.destination = data.destination;
   this.address = data.address;
   this.meal = data.meal;
+  this.yelpUrl = data.yelp_url;
+  this.image = data.image;
+  this.ratingImg = data.rating_img;
+  this.lat = data.latitude;
+  this.lng = data.longitude;
 };
 
 Activity.prototype.render = function() {
