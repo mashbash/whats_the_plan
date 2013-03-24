@@ -4,8 +4,6 @@ class ActivityPlan < ActiveRecord::Base
   belongs_to :activity
   belongs_to :plan
 
-  def self.chosen
-    where("sequence IS NOT NULL")
-  end
+  scope :chosen, where("sequence IS NOT NULL")
 
 end

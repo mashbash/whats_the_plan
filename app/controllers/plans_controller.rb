@@ -1,5 +1,6 @@
 class PlansController < ApplicationController
-  def index  
+
+  def index
     @plans = Plan.all
   end
 
@@ -13,8 +14,7 @@ class PlansController < ApplicationController
     @plan.user = current_user if current_user
 
     if @plan.save
-      redirect_to @plan
-      # redirect_to root_path
+      redirect_to plan_path(@plan)
     else
       render new_plan_path
     end

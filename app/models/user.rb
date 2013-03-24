@@ -16,4 +16,16 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+
+  scope :upcoming_plans, -> { joins(:plans).where("end_date > ?", Time.now) }
+  scope :past_plans,     -> { joins(:plans).where("end_date < ?", Time.now) }
+
+  def upcoming_plans
+    plans.where("end_date > ?", Time.now )
+  end
+  
+  def past_plans
+    plans.where("end_date < ?", Time.now ) 
+  end   
+
 end

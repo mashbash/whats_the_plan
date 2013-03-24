@@ -8,17 +8,52 @@
 
 body {
   padding-top: 40px;
+  background-image:url('/assets/cartographer.png');
 }
 
 .hero-unit {
-  padding: 10px;
+  padding: 0px 10px 5px 10px;
   float: none;
 }
 
 .span6.offset2.hero-unit:nth-child(odd) {
-  background: #B0F8FB;
+  background: #B2DBFF;
 }
 
 .span6.offset2.hero-unit:nth-child(even) {
   background: #FFD6B2;
+}
+
+.navbar-inner {
+  background-color: #0C2542 !important;
+  background-image: none !important;
+}
+
+.title {
+  display:inline-block;
+  margin-right: 20px;
+  vertical-align: middle;
+}
+
+.btn a{
+  text-decoration: none;
+  color: black;
+}
+
+.span6.user-plans {
+  background-color: #FFD6B2;
+  border-radius: 5px;  
+}
+
+.span6.user-past-plans {
+  background-color: #DBFFB2;
+  border-radius: 5px;
+}
+
+.span6 li {
+  list-style-type: none;
+}
+
+.span6 li a {
+  color: #15568F;
 }

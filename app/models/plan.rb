@@ -17,6 +17,7 @@ class Plan < ActiveRecord::Base
   after_create :create_sequence
 
   def best_route
+
     route = Activity.joins(:activity_plans).
                      where(:id => activity_plans.chosen.pluck(:activity_id)).
                      order(:sequence).all

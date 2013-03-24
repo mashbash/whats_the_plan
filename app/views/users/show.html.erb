@@ -1,0 +1,31 @@
+<h1> Hi, <%= @user.name %>! </h1>
+<h4> You have <%= pluralize(@user.upcoming_plans.length, 'plan') %> coming up! </h4>
+<h4> You have <%= pluralize(@user.past_plans.length, 'past plan') %>, <%= link_to "create more!", new_plan_path%></h4>
+
+
+
+<div class="row">
+  <div class="span6 user-plans">
+    <ul>
+    <% unless @user.upcoming_plans.empty? %>
+      <h3>Upcoming plans:</h3>
+    <% end %>
+      <% @user.upcoming_plans.each do |plan| %>
+        <li><%= link_to plan.title, plan %></li>
+      <% end %>  
+    <ul>  
+  </div>
+
+  <div class="span6 user-past-plans">
+    <ul>
+    <% unless @user.past_plans.empty? %>
+      <h3>Past plans:</h3>
+    <% end %>
+      <% @user.past_plans.each do |plan| %>
+        <li><%= link_to plan.title, plan %></li>
+      <% end %>  
+    <ul>  
+  </div>
+</div>
+
+
