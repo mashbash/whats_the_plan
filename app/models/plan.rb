@@ -3,10 +3,7 @@ class Plan < ActiveRecord::Base
   attr_accessible :start_date, :end_date, :title, :activities_attributes
 
   validates :title, :presence => true
-  validates :start_date, :presence => true
-  validates :end_date,   :presence => true
-
-  validate :end_date_before_start_date
+  validate  :end_date_before_start_date
 
   belongs_to :user 
   has_many :activity_plans
@@ -14,10 +11,10 @@ class Plan < ActiveRecord::Base
   accepts_nested_attributes_for :activities
   attr_accessible :activities_attributes
 
+  before_validation :default_dates, :unless => Proc.new { self.start_date }
   after_create :create_sequence
 
   def best_route
-
     route = Activity.joins(:activity_plans).
                      where(:id => activity_plans.chosen.pluck(:activity_id)).
                      order(:sequence).all
@@ -54,5 +51,10 @@ class Plan < ActiveRecord::Base
     (1..ActivityCluster::MAX_ROUTE_LENGTH).map do |n|
       activities.find { |activity| activity_sequence(activity) == n }
     end
+  end
+
+  def default_dates
+    self.start_date = Date.today
+    self.end_date = Date.tomorrow
   end
 end

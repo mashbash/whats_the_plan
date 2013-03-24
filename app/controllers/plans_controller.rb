@@ -10,14 +10,13 @@ class PlansController < ApplicationController
   end
 
   def create
-    debugger
     @plan = Plan.new(params[:plan])
     @plan.user = current_user if current_user
 
     if @plan.save
-      redirect_to plan_path(@plan)
+      render :json => { plan: @plan }
     else
-      render new_plan_path
+      render :json => { plan: @plan, activities: @plan.activities }
     end
   end
 
@@ -25,8 +24,6 @@ class PlansController < ApplicationController
     @plan = Plan.find(params[:id])
     @activities_plans = @plan.sorted_activities_plans.limit(4)
   end
-
-
 end
 
 

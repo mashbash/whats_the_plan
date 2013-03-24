@@ -1,6 +1,10 @@
 var plan = {
   activities: [],
 
+  init: function() {
+  this.planFormListener();    
+  },
+
   add: function(activity) {
     this.activities.push(activity);
     this.render(activity);
@@ -9,18 +13,25 @@ var plan = {
   render: function(activity) {
     $('.new-plan').append(activity.render());
     if (activity.meal) $('.new-activity').last().addClass("meal");
-    this.listen();
+    this.activityListener();
   },
 
-  listen: function() {
+  activityListener: function() {
     var self = this;
     $('.new-close-icon').on('click', function(e){
       e.preventDefault();
       $(this).parents('.new-activity').remove();
     });
+  },
 
+  planFormListener: function() {
+    var self = this;
     $('.create-plan').on('click', function(e){
-      $.post("/plans", self.params(), "json").done(function(){});
+      e.preventDefault();
+      $.post("/plans", self.params(), "json").done(function(data){
+        // need to handle error response cases
+        window.location.href = "/plans/" + data.plan.id;
+      });
     });
   },
 
@@ -95,7 +106,7 @@ Activity.prototype.attrs = function() {
 };
 
 Activity.prototype.params = function() {
-  return {destination: this.destination, meal: this.mealval(), address: this.address}
+  return {title: this.destination, meal: this.mealVal(), street: this.address}
 };
 
 Activity.prototype.mealVal = function() {
@@ -111,4 +122,5 @@ Activity.prototype.mealVal = function() {
 jQuery(document).ready(function($) {
   $('#title').focus(); 
   form.init();
+  plan.init();
 });
