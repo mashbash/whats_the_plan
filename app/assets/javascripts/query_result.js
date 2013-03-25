@@ -12,7 +12,8 @@ var queryResult = {
     this.render();
   },
 
-  render: function(activity) {
+  render: function() {
+    debugger
     // $('.new-plan').append(activity.render());
     // if (activity.meal) $('.new-activity').last().addClass("meal");
     // this.activityListener();

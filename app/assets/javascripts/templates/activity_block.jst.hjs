@@ -1,0 +1,14 @@
+<div class="activity-block">
+  <div class="images"> 
+    <img class="photo" src="{{image}}">
+    <img class="rating" src="{{ratingImg}}">
+  </div>
+  <div class="activity-details">
+    <div class="activity-name">{{destination}}</div>
+    <div class="activity-address">{{address}}</div>
+  </div>
+  <div class="add-to-plan">
+    <i class="icon-plus icon-2x"></i>
+    <p>(add to plan)</p>
+  </div>
+</div>

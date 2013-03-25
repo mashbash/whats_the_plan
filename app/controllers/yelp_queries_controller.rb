@@ -2,6 +2,7 @@ class YelpQueriesController < ApplicationController
   respond_to :json
 
   def create
+    puts">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
     @query = YelpQuery.new
     # @results = YelpResult.load(@query.fetch!(params[:query]))
     @results = YelpResult.load(mock_dumplings)

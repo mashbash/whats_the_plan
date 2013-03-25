@@ -19,7 +19,6 @@ var form = {
     $('.yelp-search').on('click', function(e) {
       e.preventDefault();
       if(self.invalid()) return false
-
       var searchTerms = {};
       $.post("/yelp", {query: searchTerms}).done(function(data){
         queryResult.load(data.results);
