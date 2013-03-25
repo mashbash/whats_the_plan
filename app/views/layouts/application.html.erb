@@ -12,6 +12,8 @@
 </head>
 <body>
   <%= render :partial => 'layouts/header' %>
+  <%= render "devise/registrations/signup_form" %>
+  <%= render "devise/sessions/signin_form" %>
   
   <div class='container'>
     <%= yield %>

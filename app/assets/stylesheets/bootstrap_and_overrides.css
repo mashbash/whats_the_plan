@@ -127,7 +127,11 @@ tr td a:hover {
   width: 600px;
 }
 
-
+.signup-form, .signin-form {
+  display: none;
+  float: right;
+  margin-right: 130px;
+}
 
 /* plan creation */
 .switch-label {
