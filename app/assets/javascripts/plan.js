@@ -34,12 +34,12 @@ var plan = {
 
   render: function(activity) {
     $('.new-plan').append(activity.renderPlan());
-    this.activityListener();
+    this.activityListener(activity.id);
   },
 
-  activityListener: function() {
+  activityListener: function(id) {
     var self = this;
-    $('.new-close-icon').on('click', function(e){
+    $(".new-plan div[data-id='" + id + "']").on('click', '.new-close-icon', function(e){
       e.preventDefault();
       var id = $(this).parents('.activity-block').data('id');
       plan.remove(id);

@@ -8,7 +8,7 @@ var queryResult = {
   load: function(data, isMeal) {
     this.activities = [];
     for (i in data) {
-      var activity = new Activity(data[i], i);
+      var activity = new Activity(data[i], parseInt(i));
       activity.meal = isMeal;
       this.activities.push(activity);
     }
@@ -36,12 +36,11 @@ var queryResult = {
 
   activityListener: function() {
     var self = this;
-    $('.add-to-plan').on('click', function(e){
+    $('.search-results').on('click', '.add-to-plan', function(e){
       e.preventDefault();
-      var searchId = $(this).parents('.activity-block').data('id')
-      var activity = self.find(searchId);
+      var activity = self.find($(this).parents('.activity-block').data('id'));
       plan.add(activity);
-      self.remove(searchId);
+      self.remove(activity.id);
       $(this).parents('.activity-block').remove();
     });
   },
