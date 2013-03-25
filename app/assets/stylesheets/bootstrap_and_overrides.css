@@ -161,6 +161,10 @@ tr td a:hover {
   margin-top: 1.1em;
 }
 
+.btn.create-plan.disabled {
+  pointer-events:none;
+}
+
 .activity-block {
   padding: 0.5em;
   background: #fff;

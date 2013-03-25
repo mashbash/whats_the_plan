@@ -5,10 +5,12 @@ var queryResult = {
     this.$body = $('.search-results');
   },
 
-  load: function(data) {
+  load: function(data, isMeal) {
     this.activities = [];
     for (i in data) {
-      this.activities.push(new Activity(data[i], i));
+      var activity = new Activity(data[i], i);
+      activity.meal = isMeal;
+      this.activities.push(activity);
     }
     this.render();
     this.activityListener();

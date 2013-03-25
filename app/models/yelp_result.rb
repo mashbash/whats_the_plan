@@ -19,6 +19,6 @@ class YelpResult
   end
 
   def shorten_address(args)
-    [args["display_address"].first, args["display_address"].last].join(", ")
+    "#{args["display_address"].first}\n#{args["display_address"].last}"
   end
 end

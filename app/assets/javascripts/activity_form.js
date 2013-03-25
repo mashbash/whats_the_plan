@@ -23,7 +23,8 @@ var form = {
       $('div.new-plan, .create-plan').show();
       var searchTerms = { destination: self.destination.val(), address: self.address.val() };
       $.post("/yelp", {query: searchTerms}).done(function(data){
-        queryResult.load(data.results);
+        queryResult.load(data.results, self.isMeal());
+        self.reset();
       });
     });
   },
@@ -36,7 +37,7 @@ var form = {
   },
 
   data: function() {
-    var mealBool = $('div.switch-on').length == 1;
+    var mealBool = this.isMeal();
     return {destination: this.destination.val(), address: this.address.val(), meal: mealBool};
   },
 
@@ -44,5 +45,9 @@ var form = {
     $('#destination, #address').val("");
     $('#destination').focus();
     $('input').removeClass('error');
+  },
+
+  isMeal: function() {
+    return $('div.switch-on').length == 1;
   }
 };

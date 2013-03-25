@@ -8,7 +8,7 @@ var plan = {
   add: function(activity) {
     this.activities.push(activity);
     this.render(activity);
-    $('.create-plan').attr('disabled', false);
+    $('.create-plan').removeClass('disabled');
   },
 
   remove: function(id) {
@@ -31,9 +31,12 @@ var plan = {
     var self = this;
     $('.new-close-icon').on('click', function(e){
       e.preventDefault();
-      var id = $(this).parents('.new-activity').data('id')
+      var id = $(this).parents('.activity-block').data('id');
       plan.remove(id);
-      $(this).parents('.new-activity').remove();
+      $(this).parents('.activity-block').remove();
+      if (self.activities.length == 0) {
+        $('.create-plan').addClass('disabled');
+      };
     });
   },
 
@@ -41,12 +44,21 @@ var plan = {
     var self = this;
     $('.create-plan').on('click', function(e){
       e.preventDefault();
+      if (self.invalid()) return false;
       $.post("/plans", self.params(), "json").done(function(data){
         // need to handle error response cases
         window.location.href = "/plans/" + data.plan.id;
       });
     });
   },
+
+  invalid: function() {
+    if ($('#title').val() == "") $('#title').addClass("error");
+    return ($('#title').val() == "");
+  },
+
+
+
 
   params: function() {
     return {plan: { title: this.title(), activities_attributes: this.activitesAttrs()} }

@@ -3,6 +3,7 @@
 {{else}}
   <div class="activity-block nonmeal-block" data-id="{{id}}">
 {{/if}}
+  <a class="new-close-icon" href="#">X</a>
   <div class="images">
     <img class="photo" src="{{image}}">
     <img class="rating" src="{{ratingImg}}">
