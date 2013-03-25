@@ -1,6 +1,6 @@
 class ActivityCluster
   MAX_ROUTE_LENGTH = 4
-  MAX_DISTANCE     = 2000
+  MAX_DISTANCE     = ENV_MAX_DISTANCE
 
   def initialize(destinations)
     raise ArgumentError unless destinations.is_a?(Array) && destinations.any?
@@ -38,11 +38,11 @@ class ActivityCluster
   end
 
   def closest_location(location, destinations)
-    return nil if destinations.empty?   
+    return nil if destinations.empty?
     distances = destinations.map do |destination|
       {location: destination, distance: self.distance_between(location, destination)}
     end
-    
+
     closest = distances.sort{|a, b| a[:distance] <=> b[:distance]}.first
     closest[:location] unless closest[:distance] > MAX_DISTANCE
   end
@@ -55,7 +55,7 @@ class ActivityCluster
     (@destinations-[starting_point]).partition {|dest| dest.meal.zero? }
   end
 
-  private 
+  private
   def last_valid_location(route)
     route.reverse.find{ |r| r }
   end
