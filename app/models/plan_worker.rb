@@ -2,7 +2,9 @@ class PlanWorker
   include Sidekiq::Worker
 
   def perform(id)
-    plan = Plan.find(id)
+    plan = Plan.includes(:activities).find(id)
+
+    plan.activities.each { |activity| activity.save }
 
     activity_cluster = ActivityCluster.new(plan.activities)
     best_route = activity_cluster.best_cluster_and_route
