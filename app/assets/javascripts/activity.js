@@ -19,7 +19,7 @@ Activity.prototype.renderSearch = function() {
 };
 
 Activity.prototype.params = function() {
-  return {title: this.destination, meal: this.mealVal(), street: this.address, latitude: this.lat, longitude: this.lng}
+  return {title: this.destination, meal: this.mealVal(), street: this.address, latitude: this.lat, longitude: this.lng, image_url: this.image}
 };
 
 Activity.prototype.mealVal = function() {

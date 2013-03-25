@@ -1,7 +1,7 @@
 class Activity < ActiveRecord::Base
 
   attr_accessible :title, :street, :city, :state, :zip_code, :country,
-                  :longitude, :latitude, :meal
+                  :longitude, :latitude, :meal, :image_url
 
   validates :title,     :presence => true
   validates :street,    :presence => true
@@ -17,7 +17,7 @@ class Activity < ActiveRecord::Base
 
   def check_lat_long_present
     fetch_api_details unless self.latitude && self.longitude
-  end  
+  end
 
   def fetch_api_details
     @api_details = Geocoder.search(full_address).first
