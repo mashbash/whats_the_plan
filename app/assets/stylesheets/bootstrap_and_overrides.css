@@ -97,8 +97,6 @@ ul.plan-header, ul.past-plan-header {
   margin-bottom: 50px;
 }
 
-
-
 .profile-welcome a {
   color: #0C2542;
 }
@@ -109,6 +107,9 @@ ul.plan-header, ul.past-plan-header {
 .past-plan-list.table tbody tr:hover td{ background-color: #FCECDE; }
 .past-plan-list.table tbody tr:hover th{ background-color: #FFD6B2; }
 
+tr td a:hover {
+  text-decoration: none;
+}
 
 
 /*---- Plans#index ----*/

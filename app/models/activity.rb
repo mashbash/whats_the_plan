@@ -14,6 +14,7 @@ class Activity < ActiveRecord::Base
   geocoded_by :full_address
 
   private
+
   def fetch_api_details
     @api_details = Geocoder.search(full_address).first
     raise Exceptions::InvalidAddressError if @api_details.nil?
