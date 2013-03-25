@@ -1,14 +1,24 @@
 var plan = {
+  
   activities: [],
 
   init: function() {
-  this.planFormListener();
+    this.planFormListener();
   },
 
   add: function(activity) {
+    activity.id = this.nextId();
     this.activities.push(activity);
     this.render(activity);
     $('.create-plan').removeClass('disabled');
+  },
+
+  nextId: function() {
+    if (this.activities.length == 0) {
+      return 0;
+    } else {
+      return this.activities[this.activities.length -1].id + 1;
+    }
   },
 
   remove: function(id) {
@@ -57,14 +67,11 @@ var plan = {
     return ($('#title').val() == "");
   },
 
-
-
-
   params: function() {
-    return {plan: { title: this.title(), activities_attributes: this.activitesAttrs()} }
+    return {plan: { title: this.title(), activities_attributes: this.activitiesAttrs()} }
   },
 
-  activitesAttrs: function() {
+  activitiesAttrs: function() {
     var data = {}
     for (i in this.activities) {
       var key = (i).toString();

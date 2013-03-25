@@ -38,11 +38,10 @@ var queryResult = {
     var self = this;
     $('.add-to-plan').on('click', function(e){
       e.preventDefault();
-      var id = $(this).parents('.activity-block').data('id')
-      var activity = self.find(id);
-      plan.add(activity, plan.activities.length + 1);
-
-      self.remove(id);
+      var searchId = $(this).parents('.activity-block').data('id')
+      var activity = self.find(searchId);
+      plan.add(activity);
+      self.remove(searchId);
       $(this).parents('.activity-block').remove();
     });
   },
