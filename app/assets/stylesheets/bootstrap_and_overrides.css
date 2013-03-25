@@ -139,9 +139,81 @@ ul.plan-header, ul.past-plan-header {
   display: inline-block;
 }
 
-.new-plan {
-  display: none;
+
+.search-results {
+  display: inline-block;
+  width: 40%;
 }
+
+.new-plan {
+  display: inline-block;
+  width: 40%;
+  padding-left: 2em;
+}
+
+.activity-block {
+  padding: 0.5em;
+  background: #fff;
+  height: 70px;
+  margin-bottom: 0.5em;
+  border-radius: 6px;
+  border: 1px solid darkgrey;
+}
+
+.nonmeal-block {
+  background-color: #B2DBFF;
+}
+
+.meal-block {
+  background-color: #FFD6B2;
+}
+
+.activity-details {
+  padding-left: 2em;
+  padding-top: 0.5em;
+  float: left;
+}
+
+.images {
+  width: 60px;
+  float: left;
+  display: inline-block;
+  text-align: center;
+}
+
+.add-to-plan {
+  float: right;
+  padding-top: 1em;
+  text-align: center;
+  color: lightgreen;
+}
+
+.add-to-plan:hover {
+  cursor: pointer;
+  color: green;
+}
+
+.add-activity p {
+  margin: 0;
+  font-size: 0.8em;
+}
+
+.activity-block .photo {
+  height: 50px;
+  width:  50px;
+}
+
+.activity-name {
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-bottom: 0.5em 
+}
+
+.activity-address {
+  font-size: 1em;
+  font-style: italic;
+}
+
 
 .new-activity {
   background: #B0F8FB;
