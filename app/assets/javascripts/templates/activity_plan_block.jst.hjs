@@ -1,0 +1,25 @@
+{{#if meal}}
+  <div class="activity-block meal-block" data-id="{{id}}">
+{{else}}
+  <div class="activity-block nonmeal-block" data-id="{{id}}">
+{{/if}}
+  <div class="images">
+    <img class="photo" src="{{image}}">
+    <img class="rating" src="{{ratingImg}}">
+  </div>
+  <div class="activity-details">
+    <div class="activity-name">{{destination}}</div>
+    <div class="activity-address">{{address}}</div>
+  </div>
+  {{#if meal}}
+  <div class="activity-icon">
+    <i class="icon-food icon-2x"></i>
+  </div>
+  {{else}}
+    <div class="activity-icon">
+      <i class="icon-camera-retro icon-2x"></i>
+    </div>
+  {{/if}}
+</div>
+
+

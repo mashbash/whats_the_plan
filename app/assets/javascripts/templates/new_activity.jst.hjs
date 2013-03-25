@@ -1,4 +1,4 @@
-<div class="new-activity">
+<div class="new-activity" data-id="{{id}}">
   <a class="new-close-icon" href="#">X</a>
   {{#if meal}}
     <i class="activity-icon icon-food icon-2x"></i>

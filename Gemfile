@@ -8,6 +8,7 @@ gem 'handlebars-rails', :git => 'git://github.com/kolo/handlebars-rails.git'
 gem 'thin'
 gem "font-awesome-rails"
 gem 'sidekiq'
+gem "oauth-plugin", "~> 0.4.0"
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
@@ -40,5 +41,5 @@ gem 'devise'
 
 gem 'debugger'
 
-gem "less-rails" 
+gem "less-rails"
 gem "twitter-bootstrap-rails"
