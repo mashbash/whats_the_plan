@@ -46,6 +46,16 @@ body {
   color: black;
 }
 
+.signup-form, .signin-form {
+  display: none;
+  float: right;
+  margin: 30px 130px 0 0;
+}
+
+.label {
+  padding: 0px;
+}
+
 /*---- Users#show ----*/
 
 .plan-header, .plan-list {
@@ -125,12 +135,6 @@ tr td a:hover {
   padding: 10px;
   border-radius: 10px;
   width: 600px;
-}
-
-.signup-form, .signin-form {
-  display: none;
-  float: right;
-  margin-right: 130px;
 }
 
 /* plan creation */
