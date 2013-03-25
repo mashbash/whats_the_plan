@@ -2,7 +2,7 @@ FactoryGirl.define do
   sequence(:name)      {|n| "john#{n}"}
   sequence(:email)     {|n| "user#{n}@example.com"}
   streets  =             ["Golden Gate Bridge", "Coit Tower", "Golden Gate Park",
-                          "Transamerica Pyramid", "Alcatraz", "Grace Cathedral, SF"]
+                          "Muir Woods, California", "Alcatraz", "Grace Cathedral, SF"]
 
   factory :user do
     name

@@ -10,10 +10,14 @@ class Activity < ActiveRecord::Base
   has_many :activity_plans
   has_many :plans, :through => :activity_plans, :inverse_of => :activities
 
-  before_create :fetch_api_details
+  before_create :check_lat_long_present
   geocoded_by :full_address
 
   private
+
+  def check_lat_long_present
+    fetch_api_details unless self.latitude && self.longitude
+  end  
 
   def fetch_api_details
     @api_details = Geocoder.search(full_address).first
@@ -29,7 +33,7 @@ class Activity < ActiveRecord::Base
       number = c["long_name"] if c["types"].include? "street_number"
       name   = c["long_name"] if c["types"].include? "route"
     end
-    self.street = "#{number} #{name}"
+    self.street = "#{number} #{name}" unless name.length.zero?
   end
 
   def scrub_address_other
