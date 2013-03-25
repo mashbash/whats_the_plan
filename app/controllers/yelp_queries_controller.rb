@@ -3,8 +3,8 @@ class YelpQueriesController < ApplicationController
 
   def create
     @query = YelpQuery.new
-    @results = YelpResult.load(@query.fetch!(params[:query]))
-    # @results = YelpResult.load(mock_dumplings)
+    # @results = YelpResult.load(@query.fetch!(params[:query]))
+    @results = YelpResult.load(mock_dumplings)
     render :json => { :results => @results }
   end
 
