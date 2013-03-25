@@ -2,12 +2,8 @@ require 'spec_helper'
 
 describe Activity do
 
-  let(:params) {  { :title    => "Study really hard",
-                    :street   => "717 California St.", 
-                    :city     => "San Francisco", 
-                    :country  => "USA", 
-                    :zip_code => "94108", 
-                    :state    => "CA",
+  let(:params) {  { :title    => "Coit Tower",
+                    :street   => "San Francisco",
                     :meal     => 0 } }
   let(:activity) { Activity.new(params) }
 

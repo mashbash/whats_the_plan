@@ -46,6 +46,8 @@ describe Plan do
       let(:plan) { create(:plan_with_activities) }
 
       it 'all elements are Activities' do
+        plan_worker = PlanWorker.new
+        plan_worker.perform(plan.id)
         plan.best_route.each do |element|
           element.should be_an(Activity)
         end
@@ -55,6 +57,8 @@ describe Plan do
     context 'all meals' do
       let(:plan) { create(:plan_with_all_meals) }
       it 'elements are nil then activity' do
+        plan_worker = PlanWorker.new
+        plan_worker.perform(plan.id)
         plan.best_route.map {|element| element.class}.
           should eq([NilClass, Activity, NilClass, Activity])
       end
@@ -63,6 +67,8 @@ describe Plan do
     context 'no meals' do
       let(:plan) { create(:plan_with_no_meals) }
       it 'elements are activity then nil' do
+        plan_worker = PlanWorker.new
+        plan_worker.perform(plan.id)
         plan.best_route.map {|element| element.class}.
           should eq([Activity, NilClass, Activity, NilClass])
       end
