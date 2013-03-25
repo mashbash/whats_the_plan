@@ -1,4 +1,5 @@
-function Activity(data) {
+function Activity(data, id) {
+  this.id = id;
   this.destination = data.destination;
   this.address = data.address;
   this.meal = data.meal;
@@ -14,7 +15,7 @@ Activity.prototype.render = function() {
 };
 
 Activity.prototype.attrs = function() {
-  return {destination: this.destination, meal: this.meal, address: this.address}
+  return {id: this.id, destination: this.destination, meal: this.meal, address: this.address}
 };
 
 Activity.prototype.params = function() {
@@ -28,3 +29,7 @@ Activity.prototype.mealVal = function() {
     return 0;
   }
 };
+
+Activity.prototype.element = function() {
+  $("div[data-id='" + this.id +"']");
+}

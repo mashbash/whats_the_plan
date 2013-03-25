@@ -10,6 +10,17 @@ var plan = {
     this.render(activity);
   },
 
+  remove: function(id) {
+    var activity = this.find(id);
+    this.activities.splice(this.activities.indexOf(activity), 1);
+  },
+
+  find: function(id) {
+    for (i in this.activities) {
+      if (this.activities[i].id == id) return this.activities[i];
+    }
+  },
+
   render: function(activity) {
     $('.new-plan').append(activity.render());
     if (activity.meal) $('.new-activity').last().addClass("meal");
@@ -20,6 +31,8 @@ var plan = {
     var self = this;
     $('.new-close-icon').on('click', function(e){
       e.preventDefault();
+      var id = $(this).parents('.new-activity').data('id')
+      plan.remove(id);
       $(this).parents('.new-activity').remove();
     });
   },

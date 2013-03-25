@@ -12,7 +12,7 @@ var form = {
       if (self.invalid()) return false
 
       $('div.new-plan, .create-plan').show();
-      plan.add(new Activity(self.data()));
+      plan.add(new Activity(self.data(), plan.activities.length + 1));
       self.reset();
     });
 
