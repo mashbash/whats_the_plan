@@ -21,10 +21,6 @@ class Plan < ActiveRecord::Base
     route.length == ActivityCluster::MAX_ROUTE_LENGTH ? route : pad(route)
   end
 
-  def sorted_activities_plans
-    self.activity_plans.order(:sequence)
-  end
-
   # private
   def create_sequence
     PlanWorker.perform_async(self.id)

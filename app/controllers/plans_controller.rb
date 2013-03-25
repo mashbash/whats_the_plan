@@ -22,7 +22,6 @@ class PlansController < ApplicationController
 
   def show
     @plan = Plan.find(params[:id])
-    @activities_plans = @plan.sorted_activities_plans.limit(4)
   end
 end
 
