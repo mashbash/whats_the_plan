@@ -12,19 +12,6 @@ body {
   font-family: 'Roboto Condensed', sans-serif;
 }
 
-.hero-unit {
-  padding: 0px 10px 5px 10px;
-  float: none;
-}
-
-.span6.offset2.hero-unit:nth-child(odd) {
-  background: #B2DBFF;
-}
-
-.span6.offset2.hero-unit:nth-child(even) {
-  background: #FFD6B2;
-}
-
 .navbar-inner {
   background-color: #0C2542 !important;
   background-image: none !important;
@@ -138,7 +125,7 @@ tr td a:hover {
   width: 600px;
 }
 
-/* plan creation */
+/*---- plan creation ----*/
 .switch-label {
   display: inline-block;
   font-weight: bold;
@@ -273,3 +260,50 @@ input.error {
 input.error:focus {
   box-shadow: 0 0 5px red;
 }
+
+/*---- Plans#show ----*/
+
+.plan-title {
+  margin: 30px 0;
+}
+
+.hero-unit {
+  padding: 0px 10px 5px 10px;
+}
+
+.hero-unit div {
+  display: inline-block;
+}
+
+.span6.hero-unit:nth-child(odd) {
+  background: #B2DBFF;
+  margin-left: 0;
+}
+
+.span6.hero-unit:nth-child(even) {
+  background: #FFD6B2;
+  margin-left: 0;
+}
+
+.side-bar {
+  margin-left: 700px;
+  width: 300px;
+}
+
+.show-map {
+  text-align: center;
+  border: 2px dotted #444;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.other-plans {
+  border: 2px dotted #444; 
+  border-radius: 5px;
+  background: #;
+}
+
+.other-plans li {
+  list-style: none;
+}
+

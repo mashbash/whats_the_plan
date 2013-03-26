@@ -25,4 +25,9 @@ module PlansHelper
                 "options" => {"travelMode" => "DRIVING", "waypoints" => waypoints} }
           })
   end
+
+  def city(plan)
+    plan.activities.first.city
+  end  
+
 end
