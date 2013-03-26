@@ -26,7 +26,7 @@ Activity.prototype.renderSearch = function() {
 Activity.prototype.params = function() {
   return {title:     this.destination,
           meal:      this.mealVal(),
-          street:    this.fullStreet(),
+          street:    this.street,
           city:      this.city,
           state:     this.state,
           country:   this.country,
@@ -36,27 +36,18 @@ Activity.prototype.params = function() {
           image_url: this.image}
 };
 
-Activity.prototype.fullStreet = function() {
-  //fix for cases where street num is not available
+Activity.prototype.updateStreet = function() {
   if (this.street_num) {
     return this.street_num + " " + this.street_name;
-  } else {
-    return this.street;
-  }
-};
-
-Activity.prototype.shortStreet = function() {
-  if (this.fullStreet()) {
-    return this.fullStreet();
   } else if (this.street_name) {
     return this.street_name;
   } else {
-    return "";
+    return "Street not found";
   }
 };
 
 Activity.prototype.updateCity = function() {
-  this.displayCity = [this.city, this.state, this.zip_code].join(", ");
+  this.displayCity = [this.city, this.state, this.zip_code].join(" ");
   return this.displayCity;
 };
 
@@ -108,12 +99,14 @@ Activity.prototype.parseAddress = function(results) {
       this.country = address[i].short_name;
     };
   }
+  this.street = this.updateStreet();
+  this.city   = this.updateCity();
   this.triggerGeocode();
 };
 
 Activity.prototype.triggerGeocode = function() {
-  var $element = $(".new-plan .activity-block[data-id='" + this.id + "']");
-  $element.trigger("geocoded", {street: this.shortStreet(), city: this.updateCity()});
+  var $element = $(".search-results .activity-block[data-id='" + this.id + "']");
+  $element.trigger("geocoded", {street: this.street, city: this.city});
 };
 
 Activity.prototype.setImage = function(image) {
@@ -123,4 +116,3 @@ Activity.prototype.setImage = function(image) {
     return image;
   }
 };
-

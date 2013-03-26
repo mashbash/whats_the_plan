@@ -3,17 +3,24 @@ var queryResult = {
 
   init: function() {
     this.$body = $('.search-results');
+    this.activityListener();
   },
 
   load: function(data, isMeal) {
-    this.activities = [];
+    var activityCount = this.activities.length;
     for (i in data) {
-      var activity = new Activity(data[i], parseInt(i));
+      var id = parseInt(i) + activityCount;
+      var activity = new Activity(data[i], id);
       activity.meal = isMeal;
       this.activities.push(activity);
     }
     this.render();
-    this.activityListener();
+  },
+
+  add: function(activity) {
+    activity.id = this.activities.length;
+    this.activities.push(activity);
+    this.render();
   },
 
   remove: function(id) {
@@ -43,6 +50,15 @@ var queryResult = {
       self.remove(activity.id);
       $(this).parents('.activity-block').remove();
     });
+
+    $('.search-results').on('geocoded', ".activity-block", function(event, data){
+      $(this).children('.activity-details').append("<div class='activity-street'>"+data.street+"</div>");
+      $(this).children('.activity-details').append("<div class='activity-city'>"+data.city+"</div>");
+    });
   },
+
+  reset: function() {
+    this.activities = [];
+  }
 };
 
