@@ -1,17 +1,21 @@
 <div class='plan-title'>
   <div class='title'>
     <h1><%= @plan.title %></h1>
-  </div> 
+  </div>
 </div>
 
 <div class="plan-block">
   <div class="activities">
     <% @plan.best_route.each_with_index do |activity, index| %>
       <div class="span6 plan-activity-block">
+        <h3 class="time-slot-title"><%= time_slot_title(index) %></h3>
+        <div class="plan-activity-image">
+          <%= image_tag(activity.image_url) %>
+        </div>
         <div class="plan-activity-details">
           <h3><%= title(activity) %></h3>
-          <p><%= street(activity) %></p>
-          <p><%= meal(index) %></p>
+          <p class="street-add"><%= street(activity) %></p>
+          <p class="city-add"><%= city_state(activity) %></p>
         </div>
       </div>
     <% end %>
@@ -30,9 +34,9 @@
         <ul>
           <% @show_plans.each do |plan| %>
             <li><%= link_to "#{plan.title} (#{city(plan)})", plan_path(plan) %></li>
-          <% end %>  
-        </ul>  
+          <% end %>
+        </ul>
       </div>
-  </div> 
+  </div>
 
 </div>

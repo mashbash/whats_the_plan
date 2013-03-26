@@ -279,12 +279,35 @@ div.plan-block {
 .plan-activity-block {
   min-width: 30em;
   margin: 0 auto 2em auto;
-  padding: 0px 10px 5px 10px;
+  padding: 1em;
   border-radius: 6px;
+}
+
+.time-slot-title {
+  margin-top: 0;
+}
+
+.plan-activity-image {
+  display: inline-block;
+  float: left;
+}
+
+.plan-activity-details {
+  margin: 0 0 0 2em;
+  display: inline-block;
+  float: left;
+}
+
+.plan-activity-details h3 {
+  margin: 0;
+  line-height: 0.9em;
+  margin-bottom: 0.5em;
 }
 
 .plan-activity-block p {
   font-size: 1.3em;
+  font-style: italic;
+  margin-bottom: 0.3em;
 }
 
 .plan-activity-block:nth-child(odd) {
