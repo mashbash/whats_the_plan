@@ -1,0 +1,14 @@
+<div class="span6 plan-activity-block">
+  <h3 class="time-slot-title"><%= time_slot_title(index) %></h3>
+  <div class="plan-activity-image">
+    <% if (index % 2).zero? %>
+      <%= image_tag('hiking.png', :size => "50x50") %>
+    <% else %>
+      <%= image_tag('knife-fork-plate.png', :size => "50x50") %>
+    <% end %>
+  </div>
+  <div class="plan-activity-details">
+    <h3>Placeholder</h3>
+    <p class="city-add">Placeholder</p>
+  </div>
+</div>

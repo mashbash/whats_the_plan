@@ -7,17 +7,11 @@
 <div class="plan-block">
   <div class="activities">
     <% @plan.best_route.each_with_index do |activity, index| %>
-      <div class="span6 plan-activity-block">
-        <h3 class="time-slot-title"><%= time_slot_title(index) %></h3>
-        <div class="plan-activity-image">
-          <%= image_tag(activity.image_url) %>
-        </div>
-        <div class="plan-activity-details">
-          <h3><%= title(activity) %></h3>
-          <p class="street-add"><%= street(activity) %></p>
-          <p class="city-add"><%= city_state(activity) %></p>
-        </div>
-      </div>
+      <% if activity %>
+        <%= render 'activity', :activity => activity, :index => index %>
+      <% else %>
+        <%= render 'placeholder', :index => index %>
+      <% end %>
     <% end %>
   </div>
 </div>
