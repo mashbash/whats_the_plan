@@ -14,8 +14,11 @@ class Activity < ActiveRecord::Base
   before_create :check_lat_long_present
   geocoded_by :full_address
 
-  private
+  def gmaps_string
+    "#{street}, #{city}, #{state}"
+  end
 
+  private
   def check_lat_long_present
     fetch_api_details unless self.latitude && self.longitude
   end
@@ -61,6 +64,6 @@ class Activity < ActiveRecord::Base
         attr_value[1].gsub!(/undefined/,"")
         attr_value[1].strip!
       end
-    end  
-  end  
+    end
+  end
 end
