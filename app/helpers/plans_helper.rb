@@ -17,17 +17,27 @@ module PlansHelper
   end
 
   def map(best_route)
-    waypoints = [best_route[1].gmaps_string, best_route[2].gmaps_string]
+    best_route = best_route.delete_if { |activity| activity.nil? }
+  
     gmaps({ "direction" =>
             { "data"      =>
               { "from" => best_route.first.gmaps_string,
                 "to"   => best_route.last.gmaps_string},
-                "options" => {"travelMode" => "DRIVING", "waypoints" => waypoints} }
+                "options" => {"travelMode" => "DRIVING", "waypoints" => waypoints(best_route) } }
           })
+  end
+
+  def waypoints(best_route)
+    waypoints = best_route[1..-2].map do |activity|
+      activity.gmaps_string
+    end
   end
 
   def city(plan)
     plan.activities.first.city
   end  
 
+  def distance_between(from, to)
+    Geocoder::Calculations.distance_between(from, to)
+  end
 end

@@ -72,7 +72,6 @@ Activity.prototype.get_location_data = function() {
   var activity = this;
   geocoder = new google.maps.Geocoder();
   geocoder.geocode( { 'address': activity.destination + ", " + activity.address}, function(results, status) {
-    debugger
     if (status == google.maps.GeocoderStatus.OK) {
       activity.set_location_data(results);
     } else {

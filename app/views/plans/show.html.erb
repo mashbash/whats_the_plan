@@ -1,40 +1,38 @@
-
 <div class='plan-title'>
-  <div class='title'><h1><%= @plan.title %></h1></div> 
-  <div class='btn'><a href="#">start near</a></div> 
-  <div class='btn'><a href="#">end near</a></div>
+  <div class='title'>
+    <h1><%= @plan.title %></h1>
+  </div> 
 </div>
 
-
-
-<div class="main-block">
+<div class="plan-block">
   <div class="activities">
-  <% @plan.best_route.each_with_index do |activity, index| %>
-    <div class="span6 hero-unit">
-      <h3><%= title(activity) %></h3>
-      <p><%= street(activity) %></p>
-      <p><%= meal(index) %></p>
-    </div>
-  <% end %>
-</div>
-
-
-
-  </div>
-
-  <div class="side-bar">
-    <div class="show-map">
-      <h4>Map:</h4>
-      <%= map(@plan.best_route) %>
-    </div>
-    <div class="other-plans">
-      <ul>
-      <h4>Other nearby plans</h4>
-        <% @show_plans.each do |plan| %>
-          <li><%= link_to "#{plan.title}(#{city(plan)})", plan_path(plan) %></li>
-        <% end %>  
-      </ul>  
-    </div> 
+    <% @plan.best_route.each_with_index do |activity, index| %>
+      <div class="span6 plan-activity-block">
+        <div class="plan-activity-details">
+          <h3><%= title(activity) %></h3>
+          <p><%= street(activity) %></p>
+          <p><%= meal(index) %></p>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
 
+<div class="side-bar">
+  <div class="show-map">
+    <h4>Map out your activities</h4>
+    <%= map(@plan.best_route) %>
+  </div>
+
+  <div class="other-plans">
+    <h4>Other nearby plans</h4>
+      <div>
+        <ul>
+          <% @show_plans.each do |plan| %>
+            <li><%= link_to "#{plan.title} (#{city(plan)})", plan_path(plan) %></li>
+          <% end %>  
+        </ul>  
+      </div>
+  </div> 
+
+</div>

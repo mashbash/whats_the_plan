@@ -109,7 +109,6 @@ tr td a:hover {
   text-decoration: none;
 }
 
-
 /*---- Plans#index ----*/
 
 .listofplans li {
@@ -267,43 +266,84 @@ input.error:focus {
   margin: 30px 0;
 }
 
-.hero-unit {
-  padding: 0px 10px 5px 10px;
-}
-
-.hero-unit div {
+div.plan-block {
+  z-index: 1;
   display: inline-block;
+  float: left;
+  max-width: 42em;
+  margin: 0 5em 5em 0;
+  padding: 3em;
+  border-radius: 6px;
+  background: rgba(181, 192, 201, .4);
 }
 
-.span6.hero-unit:nth-child(odd) {
+.plan-activity-block {
+  min-width: 30em;
+  margin: 0 auto 2em auto;
+  padding: 0px 10px 5px 10px;
+  border-radius: 6px;
+}
+
+.plan-activity-block p {
+  font-size: 1.3em;
+}
+
+.plan-activity-block:nth-child(odd) {
   background: #B2DBFF;
-  margin-left: 0;
+  border: 1px solid #DDE5ED;
 }
 
-.span6.hero-unit:nth-child(even) {
+.plan-activity-block:nth-child(even) {
   background: #FFD6B2;
-  margin-left: 0;
+  border: 1px solid #DDE5ED;
 }
 
 .side-bar {
-  margin-left: 700px;
-  width: 300px;
+  display: inline-block;
+  float: left;
+  width: 22em;
 }
 
 .show-map {
+  background: #0C2542;
+  color: white;
   text-align: center;
-  border: 2px dotted #444;
   border-radius: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 3em;
+  padding: 1em 0;
+}
+
+.side-bar h4 {
+  margin: 0 0 0.4em 0;
 }
 
 .other-plans {
-  border: 2px dotted #444; 
+  background: #0C2542;
+  color: white;
   border-radius: 5px;
-  background: #;
+  text-align: center;
+  padding: 1em 0;
+}
+
+.other-plans div {
+  padding: 1em 0;
+  margin: 1em 1em 0 1em;
+  background: white;
+  border-radius: 5px;
+  border: 1px solid #222;
+}
+
+.other-plans p {
+  margin-bottom: 0.3em;
+}
+
+.other-plans ul {
+  margin: 0 1em;
 }
 
 .other-plans li {
+  padding: 0 1em;
+  text-align: left;
   list-style: none;
 }
 
