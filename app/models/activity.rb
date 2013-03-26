@@ -10,6 +10,7 @@ class Activity < ActiveRecord::Base
   has_many :activity_plans
   has_many :plans, :through => :activity_plans, :inverse_of => :activities
 
+  before_save :scrub_attributes
   before_create :check_lat_long_present
   geocoded_by :full_address
 
@@ -53,4 +54,13 @@ class Activity < ActiveRecord::Base
   def full_address
     "#{title}, #{street}"
   end
+
+  def scrub_attributes
+    self.attributes.each do |attr_value|
+      if attr_value[1].class == String
+        attr_value[1].gsub!(/undefined/,"")
+        attr_value[1].strip!
+      end
+    end  
+  end  
 end
