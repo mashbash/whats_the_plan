@@ -47,12 +47,7 @@
       if (self.activities.length == 0) {
         $('.create-plan').addClass('disabled');
       };
-    });
-
-    $('.new-plan').on('geocoded', ".activity-block[data-id='" + id + "']", function(event, data){
-      $(this).children('.activity-details').append("<div class='activity-street'>"+data.street+"</div>");
-      $(this).children('.activity-details').append("<div class='activity-city'>"+data.city+"</div>");
-    });
+    });    
   },
 
   planFormListener: function() {
@@ -64,6 +59,11 @@
         // need to handle error response cases
         window.location.href = "/plans/" + data.plan.id;
       });
+    });
+
+    $('.new-plan').on('geocoded', ".activity-block", function(event, data){
+      $(this).children('.activity-details').append("<div class='activity-street'>"+data.street+"</div>");
+      $(this).children('.activity-details').append("<div class='activity-city'>"+data.city+"</div>");
     });
   },
 
