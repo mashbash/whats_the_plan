@@ -124,7 +124,12 @@ tr td a:hover {
   width: 600px;
 }
 
+<<<<<<< HEAD
 /*---- plan creation ----*/
+=======
+/* plan creation */
+
+>>>>>>> Add pictures on plan creation
 .switch-label {
   display: inline-block;
   font-weight: bold;
@@ -133,17 +138,23 @@ tr td a:hover {
 
 .switch {
   display: inline-block;
+  width: 10em;
 }
 
 .search-results {
   display: inline-block;
   min-width: 40%;
-  margin-right: 2em;
+}
+
+.yelp-search {
+  font-size: 0.8em;
 }
 
 .new-plan {
   display: inline-block;
   min-width: 40%;
+    margin-right: 2em;
+
 }
 
 .new-plan h3 {
@@ -202,6 +213,7 @@ tr td a:hover {
 }
 
 .add-activity p {
+  display: inline-block;
   margin: 0;
   font-size: 0.8em;
 }
@@ -369,3 +381,18 @@ div.plan-block {
   list-style: none;
 }
 
+.destination-form {
+  padding-bottom: 1.5em;
+}
+
+.destination-form input {
+  height: 2em;
+  width: 18em;
+}
+
+.activity-options {
+  width: 150px;
+  position: relative;
+  display: inline-block;
+  top: 16px;
+}

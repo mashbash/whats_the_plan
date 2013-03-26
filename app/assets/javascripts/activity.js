@@ -4,7 +4,7 @@ function Activity(data, id) {
   this.destination = data.destination;
   this.meal      = data.meal;
   this.yelpUrl   = data.yelp_url;
-  this.image     = data.image;
+  this.image     = this.setImage(data.image);
   this.ratingImg = data.rating_img;
   this.street    = data.street;
   this.city      = data.city;
@@ -115,3 +115,12 @@ Activity.prototype.triggerGeocode = function() {
   var $element = $(".new-plan .activity-block[data-id='" + this.id + "']");
   $element.trigger("geocoded", {street: this.shortStreet(), city: this.updateCity()});
 };
+
+Activity.prototype.setImage = function(image) {
+  if (image == undefined) {
+    return "http://" + this.destination.replace(/\s+/g, '') + ".jpg.to/icon"
+  } else {
+    return image;
+  }
+};
+
