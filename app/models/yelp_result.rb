@@ -6,7 +6,12 @@ class YelpResult
     @yelp_url    = args["url"]
     @image       = args["image_url"]
     @rating_img  = args["rating_img_url_small"]
-    @address     = shorten_address(args["location"])
+    @street      = args["location"]["address"].first
+    @city        = args["location"]["city"]
+    @state       = args["location"]["state_code"]
+    @zip_code    = args["location"]["postal_code"]
+    @country     = args["location"]["country_code"]
+    @display_city   = args["location"]["display_address"].last
     @latitude, @longitude = set_coordinates(args["location"]["coordinate"])
   end
 
@@ -16,9 +21,5 @@ class YelpResult
 
   def self.load(results)
     results.map { |data| YelpResult.new(data) }
-  end
-
-  def shorten_address(args)
-    "#{args["display_address"].first}\n#{args["display_address"].last}"
   end
 end

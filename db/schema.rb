@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130325232459) do
+# <<<<<<< HEAD
+# ActiveRecord::Schema.define(:version => 20130325232459) do
+# =======
+ActiveRecord::Schema.define(:version => 20130325231454) do
+# >>>>>>> f09626470eb7ecf75a0ed3aba0fae1a0a5313c03
 
   create_table "activities", :force => true do |t|
     t.string  "title"
@@ -23,14 +27,13 @@ ActiveRecord::Schema.define(:version => 20130325232459) do
     t.float   "latitude"
     t.float   "longitude"
     t.integer "meal"
+    t.text    "image_url"
   end
 
   create_table "activity_plans", :force => true do |t|
-    t.integer  "plan_id",     :null => false
-    t.integer  "activity_id", :null => false
-    t.integer  "sequence"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer "plan_id",     :null => false
+    t.integer "activity_id", :null => false
+    t.integer "sequence"
   end
 
   add_index "activity_plans", ["activity_id"], :name => "index_activity_plans_on_activity_id"

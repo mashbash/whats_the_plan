@@ -1,5 +1,5 @@
-var plan = {
-  
+ var plan = {
+
   activities: [],
 
   init: function() {
@@ -47,6 +47,11 @@ var plan = {
       if (self.activities.length == 0) {
         $('.create-plan').addClass('disabled');
       };
+    });
+
+    $('.new-plan').on('geocoded', ".activity-block[data-id='" + id + "']", function(event, data){
+      $(this).children('.activity-details').append("<div class='activity-street'>"+data.street+"</div>");
+      $(this).children('.activity-details').append("<div class='activity-city'>"+data.city+"</div>");
     });
   },
 

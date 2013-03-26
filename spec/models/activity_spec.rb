@@ -16,6 +16,7 @@ describe Activity do
     it { activity.should respond_to(:longitude) }
     it { activity.should respond_to(:latitude) }
     it { activity.should respond_to(:title) }
+    it { activity.should respond_to(:image_url) }
   end
 
   describe "#valid?" do
@@ -44,11 +45,11 @@ describe Activity do
 
   context 'invalid address' do
     let(:params) {  { :title    => "Study really hard",
-                      :street   => "askjdfajk", 
+                      :street   => "askjdfajk",
                       :meal     => 0 } }
     let(:activity) {Activity.new(params) }
     it "raises an invalid address error" do
-      expect { 
+      expect {
         activity.save
       }.to raise_error(Exceptions::InvalidAddressError)
     end
@@ -56,7 +57,7 @@ describe Activity do
 
   context 'creating populates address details' do
     let(:params) {  { :title    => "Study really hard",
-                      :street   => "Coit Tower", 
+                      :street   => "Coit Tower",
                       :meal     => 0 } }
     let(:activity) {Activity.create(params) }
 

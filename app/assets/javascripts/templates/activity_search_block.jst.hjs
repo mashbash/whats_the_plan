@@ -5,7 +5,8 @@
   </div>
   <div class="activity-details">
     <div class="activity-name">{{destination}}</div>
-    <div class="activity-address">{{address}}</div>
+    <div class="activity-street">{{street}}</div>
+    <div class="activity-city">{{displayCity}}</div>
   </div>
   <div class="add-to-plan">
     <i class="icon-plus icon-2x"></i>

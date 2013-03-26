@@ -34,4 +34,5 @@ WhatsThePlan::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+  ENV_MAX_DISTANCE = 2000
 end

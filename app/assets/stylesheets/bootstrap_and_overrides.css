@@ -127,8 +127,6 @@ tr td a:hover {
   width: 600px;
 }
 
-
-
 /* plan creation */
 .switch-label {
   display: inline-block;
@@ -140,16 +138,15 @@ tr td a:hover {
   display: inline-block;
 }
 
-
 .search-results {
   display: inline-block;
-  width: 40%;
+  min-width: 40%;
+  margin-right: 2em;
 }
 
 .new-plan {
   display: inline-block;
-  width: 40%;
-  padding-left: 2em;
+  min-width: 40%;
 }
 
 .new-plan h3 {
@@ -168,7 +165,8 @@ tr td a:hover {
 .activity-block {
   padding: 0.5em;
   background: #fff;
-  height: 70px;
+  min-width: 26em;
+  height: 5em;
   margin-bottom: 0.5em;
   border-radius: 6px;
   border: 1px solid darkgrey;
@@ -184,7 +182,6 @@ tr td a:hover {
 
 .activity-details {
   padding-left: 2em;
-  padding-top: 0.5em;
   float: left;
 }
 
@@ -219,11 +216,11 @@ tr td a:hover {
 
 .activity-name {
   font-weight: bold;
-  font-size: 1.5em;
-  margin-bottom: 0.5em
+  font-size: 1.3em;
+  margin-bottom: 0.3em
 }
 
-.activity-address {
+.activity-street, .activity-city {
   font-size: 1em;
   font-style: italic;
 }

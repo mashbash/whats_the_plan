@@ -52,4 +52,14 @@ WhatsThePlan::Application.configure do
     password: "notmyrealpassword",
     :openssl_verify_mode  => 'none'
   }
+  # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  # yelp_data = YAML.load_file(APP_ROOT.join('config', 'settings.yml'))
+  ENV_MAX_DISTANCE = 20
+
+  yelp_data = YAML.load_file("#{::Rails.root}/config/settings.yml")
+  ENV['CONSUMER_KEY']    = yelp_data['CONSUMER_KEY']
+  ENV['CONSUMER_SECRET'] = yelp_data['CONSUMER_SECRET']
+  ENV['TOKEN']           = yelp_data['TOKEN']
+  ENV['TOKEN_SECRET']    = yelp_data['TOKEN_SECRET']
 end

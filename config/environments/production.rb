@@ -66,4 +66,5 @@ WhatsThePlan::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   config.assets.initialize_on_precompile = false
+  ENV_MAX_DISTANCE = 20
 end
