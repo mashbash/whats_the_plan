@@ -9,29 +9,32 @@
 <% end %>
 
 <form>
-  <input id="title" name="title" placeholder="Title your plan" type="text" /><br />
+  
 
   <h3>Add Activities</h3>
   <div class="activity-form">
-    <input id="destination" name="destination" placeholder="Destination" type="text" />
-    <input id="address" name="address" placeholder="Address" type="text"/>
-    <div>
-      <p class="switch-label">Will this activity involve a meal?</p>
-      <div class="switch" data-on-label="Yes" data-off-label="No">
-        <input id="meal" name="meal" type="checkbox" value="1" />
-      </div>
-    </div>
+    <div class="destination-form">
+      <input id="destination" name="destination" placeholder="Destination" type="text" />
+      <input id="address" name="address" placeholder="Address" type="text"/>
+          <div class="switch switch-label" data-on-label="Meal" data-off-label="Non Meal">
+            <input id="meal" name="meal" type="checkbox" value="1" />
+          </div>
+        <div class='activity-options'>
+        <input class="btn add-activity" name="commit" type="submit" value="Add this Activity" />
+        <%= link_to "Or get Inspiration from Yelp!", '#', class: "yelp-search" %>
+        </div>
   </div>
-  <input class="btn add-activity" name="commit" type="submit" value="Add Activity" />
-  <input class="btn btn-danger yelp-search" name="commit" type="submit" value="Search Yelp!" />
-</form>
+ 
 
-<div class="search-results">
-  <h3>Search Results</h3>
-</div>
+  <input id="title" name="title" placeholder="Plan title, e.g. 'My day in Paris'" type="text"/><br />
+</form>
 
 <div class="new-plan">
   <h3>Your Plan</h3>
   <%= link_to "Create my plan!", '#', class: "btn btn-primary create-plan disabled" %>
+</div>
+
+<div class="search-results">
+  <h3>Search Results</h3>
 </div>
 

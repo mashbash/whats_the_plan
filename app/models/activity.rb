@@ -4,7 +4,6 @@ class Activity < ActiveRecord::Base
                   :longitude, :latitude, :meal, :image_url
 
   validates :title,     :presence => true
-  validates :street,    :presence => true
   validates :meal,      :presence => true
 
   has_many :activity_plans

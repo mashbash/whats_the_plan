@@ -16,6 +16,7 @@ var form = {
       new_activity.get_location_data();
       plan.add(new_activity);
       self.reset();
+      $('.search-results .activity-block').remove();
     });
 
     $('.yelp-search').on('click', function(e) {

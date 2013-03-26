@@ -128,6 +128,7 @@ tr td a:hover {
 }
 
 /* plan creation */
+
 .switch-label {
   display: inline-block;
   font-weight: bold;
@@ -136,17 +137,23 @@ tr td a:hover {
 
 .switch {
   display: inline-block;
+  width: 10em;
 }
 
 .search-results {
   display: inline-block;
   min-width: 40%;
-  margin-right: 2em;
+}
+
+.yelp-search {
+  font-size: 0.8em;
 }
 
 .new-plan {
   display: inline-block;
   min-width: 40%;
+    margin-right: 2em;
+
 }
 
 .new-plan h3 {
@@ -205,6 +212,7 @@ tr td a:hover {
 }
 
 .add-activity p {
+  display: inline-block;
   margin: 0;
   font-size: 0.8em;
 }
@@ -261,4 +269,24 @@ input.error {
 
 input.error:focus {
   box-shadow: 0 0 5px red;
+}
+
+.destination-form {
+  padding-bottom: 1.5em;
+}
+
+.destination-form input {
+  height: 2em;
+  width: 18em;
+}
+
+.destination-form input .add-activity {
+
+}
+
+.activity-options {
+  width: 150px;
+  position: relative;
+  display: inline-block;
+  top: 16px;
 }
