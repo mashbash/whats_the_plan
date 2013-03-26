@@ -1,31 +1,19 @@
 <h1>Create new plan</h1>
 
-<% if @plan.errors.full_messages %>
-<ul>
-  <% @plan.errors.full_messages.each do |error| %>
-    <li><%= error %></li>
-  <% end %>
-</ul>
-<% end %>
-
-<form>
-  
-
+<form>  
   <h3>Add Activities</h3>
   <div class="activity-form">
     <div class="destination-form">
       <input id="destination" name="destination" placeholder="Destination" type="text" />
       <input id="address" name="address" placeholder="Address" type="text"/>
-          <div class="switch switch-label" data-on-label="Meal" data-off-label="Non Meal">
-            <input id="meal" name="meal" type="checkbox" value="1" />
-          </div>
-        <div class='activity-options'>
-        <input class="btn add-activity" name="commit" type="submit" value="Add this Activity" />
-        <%= link_to "Or get Inspiration from Yelp!", '#', class: "yelp-search" %>
+        <div class="switch switch-label" data-on-label="Meal" data-off-label="Non Meal">
+          <input id="meal" name="meal" type="checkbox" value="1" />
         </div>
+      <div class='activity-options'>
+        <input class="btn add-activity" name="commit" type="submit" value="Add this Activity" />
+      </div>
   </div>
  
-
   <input id="title" name="title" placeholder="Plan title, e.g. 'My day in Paris'" type="text"/><br />
 </form>
 

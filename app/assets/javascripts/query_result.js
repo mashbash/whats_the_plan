@@ -37,17 +37,23 @@ var queryResult = {
   render: function() {
     $('.search-results .activity-block').remove();
     for (i in this.activities) {
+
+      if (this.activities[i].id == 1) {
+        this.$body.append("<span>Yelp Results Nearby:<span>");
+      }
       this.$body.append(this.activities[i].renderSearch());
+
     }
   },
 
   activityListener: function() {
     var self = this;
     $('.search-results').on('click', '.add-to-plan', function(e){
+      debugger
       e.preventDefault();
-      var activity = self.find($(this).parents('.activity-block').data('id'));
-      plan.add(activity);
-      self.remove(activity.id);
+      var newActivity = self.find($(this).parents('.activity-block').data('id'));
+      plan.add(self.find($(this).parents('.activity-block').data('id')));
+      self.remove($(this).parents('.activity-block').data('id'));
       $(this).parents('.activity-block').remove();
     });
 
