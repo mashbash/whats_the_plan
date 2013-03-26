@@ -27,11 +27,9 @@ ActiveRecord::Schema.define(:version => 20130325231454) do
   end
 
   create_table "activity_plans", :force => true do |t|
-    t.integer  "plan_id",     :null => false
-    t.integer  "activity_id", :null => false
-    t.integer  "sequence"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer "plan_id",     :null => false
+    t.integer "activity_id", :null => false
+    t.integer "sequence"
   end
 
   add_index "activity_plans", ["activity_id"], :name => "index_activity_plans_on_activity_id"
