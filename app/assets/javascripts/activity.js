@@ -8,6 +8,8 @@ function Activity(data, id) {
   this.ratingImg = data.rating_img;
   this.lat = data.latitude;
   this.lng = data.longitude;
+  this.street = data.street;
+  this.city   = data.city;
 };
 
 Activity.prototype.renderPlan = function() {

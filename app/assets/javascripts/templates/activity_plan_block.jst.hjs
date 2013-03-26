@@ -10,7 +10,8 @@
   </div>
   <div class="activity-details">
     <div class="activity-name">{{destination}}</div>
-    <div class="activity-address">{{address}}</div>
+    <div class="activity-street">{{street}}</div>
+    <div class="activity-city">{{city}}</div>
   </div>
   {{#if meal}}
   <div class="activity-icon">

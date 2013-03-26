@@ -7,6 +7,8 @@ class YelpResult
     @image       = args["image_url"]
     @rating_img  = args["rating_img_url_small"]
     @address     = shorten_address(args["location"])
+    @street      = args["location"]["display_address"].first
+    @city        = args["location"]["display_address"].last
     @latitude, @longitude = set_coordinates(args["location"]["coordinate"])
   end
 
