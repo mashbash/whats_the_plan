@@ -9,26 +9,24 @@ var form = {
     var self = this;
     $('.add-activity').on('click', function(e){
       e.preventDefault();
-
       if (self.invalid()) return false
-      $('div.new-plan, .create-plan').show();
-      var new_activity = new Activity(self.data());
-      new_activity.get_location_data();
-      plan.add(new_activity);
-      self.reset();
+
       $('.search-results .activity-block').remove();
-    });
-
-    $('.yelp-search').on('click', function(e) {
-      e.preventDefault();
-      if(self.invalid()) return false
-
+      queryResult.reset();
       $('div.new-plan, .create-plan').show();
+      
+      //Geocoder
+      var newActivity = new Activity(self.data())
+      newActivity.get_location_data();
+      queryResult.add(newActivity);
+
+      //Yelp
       var searchTerms = { destination: self.destination.val(), address: self.address.val() };
       $.post("/yelp", {query: searchTerms}).done(function(data){
         queryResult.load(data.results, self.isMeal());
-        self.reset();
       });
+
+      self.reset();
     });
   },
 

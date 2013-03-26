@@ -129,7 +129,10 @@ tr td a:hover {
 =======
 /* plan creation */
 
+<<<<<<< HEAD
 >>>>>>> Add pictures on plan creation
+=======
+>>>>>>> refine-plan-creation
 .switch-label {
   display: inline-block;
   font-weight: bold;
@@ -272,6 +275,7 @@ input.error:focus {
   box-shadow: 0 0 5px red;
 }
 
+<<<<<<< HEAD
 /*---- Plans#show ----*/
 
 .plan-title {
@@ -380,6 +384,7 @@ div.plan-block {
   text-align: left;
   list-style: none;
 }
+
 
 .destination-form {
   padding-bottom: 1.5em;

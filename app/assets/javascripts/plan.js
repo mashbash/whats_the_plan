@@ -47,7 +47,7 @@
       if (self.activities.length == 0) {
         $('.create-plan').addClass('disabled');
       };
-    });    
+    });
   },
 
   planFormListener: function() {
