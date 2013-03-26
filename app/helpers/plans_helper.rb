@@ -38,7 +38,23 @@ module PlansHelper
     plan.activities.first.city
   end
 
+  def distances_between_activities(plan)
+    coords = coordinates(plan.best_route.include?(nil) ? plan.best_route.compact! : plan.best_route )
+    distances = []
+    (coords.length - 1).times do |i|
+      distances << distance_between(coords[i], coords[i+1]).round(2)
+    end
+    distances
+  end  
+
+  def coordinates(route)
+    route.map { |activity| activity.to_coordinates }
+  end
+
   def distance_between(from, to)
     Geocoder::Calculations.distance_between(from, to)
   end
 end
+
+
+

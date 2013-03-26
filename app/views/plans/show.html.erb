@@ -16,7 +16,10 @@
         <% end %>
       <% end %>
     </div>
-  </div>
+  </div>  
+    <%# unless activity.nil? || @plan.best_route[index+1].nil? %>
+      <!-- <div class="distance"><%= dist[index] %> mi</div> -->
+    <%# end %>
 
   <div class="side-bar">
     <div class="show-map">
@@ -34,7 +37,6 @@
           </ul>
         </div>
     </div>
-
   </div>
 
 <% else %>
