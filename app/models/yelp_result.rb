@@ -11,7 +11,7 @@ class YelpResult
     @state       = args["location"]["state_code"]
     @zip_code    = args["location"]["postal_code"]
     @country     = args["location"]["country_code"]
-    # @display_city   = args["location"]["display_address"].last
+    @display_city   = args["location"]["display_address"].last
     @latitude, @longitude = set_coordinates(args["location"]["coordinate"])
   end
 
