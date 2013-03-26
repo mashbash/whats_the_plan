@@ -9,8 +9,8 @@ var form = {
     var self = this;
     $('.add-activity').on('click', function(e){
       e.preventDefault();
-      if (self.invalid()) return false
 
+      if (self.invalid()) return false
       $('div.new-plan, .create-plan').show();
       plan.add(new Activity(self.data()));
       self.reset();

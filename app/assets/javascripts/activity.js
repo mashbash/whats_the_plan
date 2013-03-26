@@ -10,6 +10,9 @@ function Activity(data, id) {
   this.lng = data.longitude;
   this.street = data.street;
   this.city   = data.city;
+
+
+  this.get_location_data();
 };
 
 Activity.prototype.renderPlan = function() {
@@ -35,3 +38,22 @@ Activity.prototype.mealVal = function() {
 Activity.prototype.element = function() {
   $("div[data-id='" + this.id +"']");
 }
+
+Activity.prototype.get_location_data = function() {
+  var activity = this;
+  geocoder = new google.maps.Geocoder();
+  geocoder.geocode( { 'address': this.destination + this.address}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      debugger
+      activity.set_location_data(results);
+    } else {
+      activity.address = "no results";
+    }
+  });
+};
+
+Activity.prototype.set_location_data = function(results) {
+  this.lat = results[0].geometry.location.hb;
+  this.lng = results[0].geometry.location.ib;
+  this.address = results[0].formatted_address;
+};

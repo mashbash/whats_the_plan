@@ -1,4 +1,4 @@
-var plan = {
+ var plan = {
   
   activities: [],
 
