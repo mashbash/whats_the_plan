@@ -46,6 +46,17 @@ body {
   color: black;
 }
 
+.signup-form, .signin-form {
+  display: none;
+  float: right;
+  margin: 30px 373px;
+}
+
+.btn.widebtn {
+  width: 220px;
+}
+
+
 /*---- Users#show ----*/
 
 .plan-header, .plan-list {
