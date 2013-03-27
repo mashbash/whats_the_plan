@@ -9,6 +9,7 @@ var form = {
     var self = this;
     $('.add-activity').on('click', function(e){
       e.preventDefault();
+      $('.demo').remove();
       if (self.invalid()) return false
 
       $('.search-results .activity-block').remove();
