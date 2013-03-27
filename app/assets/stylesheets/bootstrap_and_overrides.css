@@ -349,6 +349,7 @@ input.error:focus {
 }
 
 .steps {
+  background: rgba(240, 240, 240, .5);
   border: 1px dotted gray;
   display: inline-block;
   margin: 1em 1em 2em 0;
