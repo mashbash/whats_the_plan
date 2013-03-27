@@ -1,8 +1,8 @@
 module PlansHelper
 
   def time_slot_title(index)
-    ["MORNING ACTIVITY (10am - Noon)", "LUNCH",
-     "AFTERNOON ACTIVITY (2:00pm - 4:00pm)", "DINNER"][index]
+    ["MORNING ACTIVITY (9am - Noon)", "LUNCH",
+     "AFTERNOON ACTIVITY (1:30pm - 5:00pm)", "DINNER"][index]
   end
 
   def title(activity)
