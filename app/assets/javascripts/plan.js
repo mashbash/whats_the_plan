@@ -35,6 +35,7 @@
   render: function(activity) {
     $('.new-plan').append(activity.renderPlan());
     this.activityListener(activity.id);
+    $('a[href=""]').addClass('disabled');
   },
 
   activityListener: function(id) {

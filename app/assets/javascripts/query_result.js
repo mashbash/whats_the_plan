@@ -43,6 +43,7 @@ var queryResult = {
       }
       this.$body.append(this.activities[i].renderSearch());
     }
+    $('a[href=""]').addClass('disabled');
   },
 
   activityListener: function() {

@@ -1,7 +1,9 @@
 <div class="activity-block" data-id="{{id}}">
   <div class="images">
-    <img class="photo" src="{{image}}">
-    <img class="rating" src="{{ratingImg}}">
+    <a target="_blank" href="{{yelpUrl}}">
+      <img class="photo" src="{{image}}">
+      <img class="rating" src="{{ratingImg}}">
+    </a>
   </div>
   <div class="activity-details">
     <div class="activity-name">{{destination}}</div>

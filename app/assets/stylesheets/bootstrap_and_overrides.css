@@ -212,6 +212,11 @@ input.plan-title-field {
   pointer-events:none;
 }
 
+.images .disabled {
+  pointer-events:none;
+  cursor: default;
+}
+
 .activity-block {
   padding: 0.5em;
   background: #fff;
