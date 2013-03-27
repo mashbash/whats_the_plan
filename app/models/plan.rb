@@ -1,6 +1,6 @@
 class Plan < ActiveRecord::Base
 
-  attr_accessible :start_date, :end_date, :title, :sequenced, :activities_attributes
+  attr_accessible :start_date, :end_date, :title, :city, :sequenced, :activities_attributes
 
   validates :title, :presence => true
   validate  :end_date_before_start_date
@@ -12,6 +12,8 @@ class Plan < ActiveRecord::Base
 
   before_validation :default_dates, :unless => Proc.new { self.start_date }
   after_create :create_sequence
+
+  scope :nearby_plans, ->(plan) { where(:city => plan.city).where("id != ?", plan.id) }
 
   def best_route
     route = Activity.joins(:activity_plans).

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130327040545) do
+ActiveRecord::Schema.define(:version => 20130327183445) do
 
   create_table "activities", :force => true do |t|
     t.string  "title"
@@ -44,7 +44,10 @@ ActiveRecord::Schema.define(:version => 20130327040545) do
     t.date    "start_date"
     t.date    "end_date"
     t.boolean "sequenced",  :default => false
+    t.string  "city"
   end
+
+  add_index "plans", ["city"], :name => "index_plans_on_city"
 
   create_table "users", :force => true do |t|
     t.string   "name"
@@ -65,13 +68,8 @@ ActiveRecord::Schema.define(:version => 20130327040545) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
   end
 
-  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 

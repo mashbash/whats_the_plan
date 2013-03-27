@@ -14,7 +14,7 @@ class PlanWorker
                update_attributes(:sequence => index + 1) if activity
     end
 
-    plan.update_attributes(:sequenced => 1)
+    plan.update_attributes(:sequenced => 1, :city => plan.best_route.first.city)
   end
 
 end
