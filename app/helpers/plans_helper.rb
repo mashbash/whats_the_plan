@@ -24,7 +24,8 @@ module PlansHelper
             { "data"      =>
               { "from" => best_route.first.gmaps_string,
                 "to"   => best_route.last.gmaps_string},
-                "options" => {"travelMode" => "DRIVING", "waypoints" => waypoints(best_route) } }
+                "options" => {"waypoints" => waypoints(best_route), "travelMode" => "DRIVING", 
+                              "avoidHighways" => TRUE} }
           })
   end
 
