@@ -149,36 +149,6 @@ h1.page-title {
   margin-right: 0.7em;
 }
 
-.switch {
-  display: inline-block;
-  width: 10em;
-  height: 2.5em;
-}
-
-.switch-label {
-  display: inline-block;
-  font-weight: bold;
-  margin-top: 5px;
-  margin-right: 0.7em;
-  height: 2.5em;
-}
-
-.has-switch span.switch-right, .has-switch span.switch-right:hover {
-  background: #B2DBFF;
-  color: #0C2542;
-  border-radius: 5px;
-  height: 2.7em;
-  line-height: 1.8em;
-}
-
-.has-switch span.switch-left, .has-switch span.switch-left:hover  {
-  background: #FFD6B2;
-  color: #0C2542;
-  border-radius: 5px;
-  height: 2.7em;
-  line-height: 1.8em;
-}
-
 .btn.add-activity {
   display: inline;
   margin-bottom: 1.8em;
