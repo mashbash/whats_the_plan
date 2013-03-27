@@ -452,3 +452,10 @@ div.plan-block {
   top: 84px;
   font-size: 1.1em;
 }
+
+/*---- Signup error messages ----*/
+
+#error_explanation {
+  color: #DE1B1B;
+}
+
