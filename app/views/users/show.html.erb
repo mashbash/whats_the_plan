@@ -7,19 +7,19 @@
 <div class="row">
   <div class="span5 offset1 user-plans">
     <ul class="plan-header">
-    <% unless @user.upcoming_plans.empty? %>
+    <%# unless @user.upcoming_plans.empty? %>
       <h3>Upcoming plans:</h3>
-    <% end %>
+    <%# end %>
     </ul>
     <table class="plan-list table table-hover">
       <tr>
-        <th> Date </th>
+        <!-- <th> Date </th> -->
         <th> Plan Name </th>
       </tr>
       <tbody>
       <% @user.upcoming_plans.each do |plan| %>
         <tr>
-          <td><%= plan.start_date.strftime("%B %d, %Y") %></td>
+          <!-- <td><%#= plan.start_date.strftime("%B %d, %Y") %></td> -->
           <td><%= link_to plan.title, plan %></td>
         </tr>
       <% end %>
@@ -29,19 +29,19 @@
 
   <div class="span5 user-past-plans">
     <ul class="past-plan-header">
-    <% unless @user.past_plans.empty? %>
+    <%# unless @user.past_plans.empty? %>
       <h3>Past plans:</h3>
-    <% end %>
+    <%# end %>
     </ul>
     <table class="past-plan-list table table-hover">
       <tr>
-        <th> Completed Date </th>
+<!--         <th> Completed Date </th> -->
         <th> Plan Name </th>
       </tr>
       <tbody>  
       <% @user.past_plans.each do |plan| %>
         <tr>
-          <td><%= plan.end_date.strftime("%B %d, %Y") %></td>
+          <!-- <td><%#= plan.end_date.strftime("%B %d, %Y") %></td> -->
           <td><%= link_to plan.title, plan %></td>
         </tr>  
       <% end %>  
