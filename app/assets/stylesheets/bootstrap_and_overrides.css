@@ -413,11 +413,14 @@ div.plan-block {
 
 .show-map {
   background: #0C2542;
-  color: white;
   text-align: center;
   border-radius: 5px;
   margin-bottom: 3em;
   padding: 1em 0;
+}
+
+.show-map h4 {
+  color: white;
 }
 
 .side-bar h4 {
