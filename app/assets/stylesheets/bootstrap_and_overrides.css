@@ -156,11 +156,6 @@ h1.page-title {
   background: #0C2542;
 }
 
-.btn.add-activity:hover {
-  background: white;
-  color: #0C2542;
-}
-
 .plan-builder {
   margin-top: 3em;
 }
@@ -182,14 +177,9 @@ input.plan-title-field {
 
 .new-plan .btn.create-plan {
   display: inline-block;
-  height: 2.3em;
+  height: 3em;
   line-height: 2.3em;
   background: #0C2542;
-}
-
-.new-plan .btn.create-plan:hover {
-  background: white;
-  color: #0C2542;
 }
 
 .plan-creation {
