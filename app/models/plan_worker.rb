@@ -13,6 +13,7 @@ class PlanWorker
       activity.activity_plans.where(:plan_id => plan.id).first.
                update_attributes(:sequence => index + 1) if activity
     end
+    
   end
 
 end
