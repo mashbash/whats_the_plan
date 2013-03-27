@@ -1,5 +1,7 @@
 class Plan < ActiveRecord::Base
 
+  NEARBY_PLANS = 8
+
   attr_accessible :start_date, :end_date, :title, :city, :sequenced, :activities_attributes
 
   validates :title, :presence => true
@@ -13,7 +15,9 @@ class Plan < ActiveRecord::Base
   before_validation :default_dates, :unless => Proc.new { self.start_date }
   after_create :create_sequence
 
-  scope :nearby_plans, ->(plan) { where(:city => plan.city).where("id != ?", plan.id) }
+  def self.nearby_plans(plan)
+    Plan.where(:city => plan.city).where("id != ?", plan.id).last(NEARBY_PLANS)
+  end
 
   def best_route
     route = Activity.joins(:activity_plans).
