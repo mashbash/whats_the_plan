@@ -50,7 +50,6 @@ var queryResult = {
     $('.search-results').on('click', '.add-to-plan', function(e){
       e.preventDefault();
       var newActivity = self.find($(this).parents('.activity-block').data('id'))
-      console.log(newActivity);
       self.remove(newActivity.id);
       plan.add(newActivity);
       $(this).parents('.activity-block').remove();

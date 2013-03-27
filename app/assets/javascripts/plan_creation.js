@@ -19,7 +19,6 @@ jQuery(document).ready(function($) {
     e.preventDefault();
     $('.signin-form').hide();
     $('.signup-form').slideToggle();
-    console.log("i'm here! in signup!");
   });
 
   $('.show-signin').on('click', function(e){
