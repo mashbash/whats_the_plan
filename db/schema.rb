@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130325231454) do
+ActiveRecord::Schema.define(:version => 20130327040545) do
 
   create_table "activities", :force => true do |t|
     t.string  "title"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20130325231454) do
     t.string  "location"
     t.date    "start_date"
     t.date    "end_date"
+    t.boolean "sequenced",  :default => false
   end
 
   create_table "users", :force => true do |t|

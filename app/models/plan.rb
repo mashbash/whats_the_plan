@@ -1,6 +1,6 @@
 class Plan < ActiveRecord::Base
 
-  attr_accessible :start_date, :end_date, :title, :activities_attributes
+  attr_accessible :start_date, :end_date, :title, :sequenced, :activities_attributes
 
   validates :title, :presence => true
   validate  :end_date_before_start_date

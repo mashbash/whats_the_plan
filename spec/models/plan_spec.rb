@@ -1,6 +1,12 @@
 require 'spec_helper'
   
 describe Plan do
+
+  it { should respond_to(:sequenced)}
+  it { should respond_to(:start_date)}
+  it { should respond_to(:end_date)}
+  it { should respond_to(:title)}
+
   describe "#valid?" do
     it { should validate_presence_of(:title) }
 
@@ -71,6 +77,18 @@ describe Plan do
         plan_worker.perform(plan.id)
         plan.best_route.map {|element| element.class}.
           should eq([Activity, NilClass, Activity, NilClass])
+      end
+    end
+
+    context 'plan worker' do 
+      let(:plan) { create(:plan_with_activities) }
+
+      it 'sets sequence to true when finished' do
+        plan.sequenced.should be_false
+        plan_worker = PlanWorker.new
+        plan_worker.perform(plan.id)
+        plan.reload
+        plan.sequenced.should be_true
       end
     end
   end
