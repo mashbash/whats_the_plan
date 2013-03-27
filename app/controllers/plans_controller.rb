@@ -22,7 +22,11 @@ class PlansController < ApplicationController
 
   def show
     @plan = Plan.find(params[:id])
-    @show_plans = Plan.where('title != ?', @plan.title)
+    if @plan && @plan.sequenced
+      @show_plans = Plan.where('title != ?', @plan.title)
+    else
+      render 'processing'
+    end  
   end
 end
 
