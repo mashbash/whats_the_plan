@@ -11,7 +11,7 @@
   <div class="distance">
     <% dist = distances_between_activities(@plan) %>
     <% unless @plan.best_route[index+1].nil? %>
-      <div class="distance"><%= dist[index] %> mi <i class="icon-arrow-down"></i></div>
+      <div class="distance">~<%= dist[index] %> mi <i class="icon-arrow-down"></i></div>
     <% end %>
   </div>  
 </div>

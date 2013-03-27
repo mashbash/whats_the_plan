@@ -476,10 +476,9 @@ div.plan-block {
 }
 
 .distance {
-/*  border: 1px solid grey;*/
   position: absolute;
   width: 120px;
-  left: 130px;
+  left: 120px;
   top: 84px;
   font-size: 1.1em;
 }

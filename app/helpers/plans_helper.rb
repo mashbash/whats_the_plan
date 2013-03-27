@@ -42,7 +42,7 @@ module PlansHelper
     coords = coordinates(plan.best_route.include?(nil) ? plan.best_route.compact! : plan.best_route )
     distances = []
     (coords.length - 1).times do |i|
-      distances << distance_between(coords[i], coords[i+1]).round(2)
+      distances << (distance_between(coords[i], coords[i+1]) * 1.2).round(1)
     end
     distances
   end  
