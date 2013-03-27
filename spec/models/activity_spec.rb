@@ -21,8 +21,9 @@ describe Activity do
 
   describe "#valid?" do
     it { should validate_presence_of(:title) }
-    it { should validate_presence_of(:street) }
     it { should validate_presence_of(:meal) }
+    it { should validate_presence_of(:latitude) }
+    it { should validate_presence_of(:longitude) }
   end
 
   describe "associations" do
@@ -30,42 +31,22 @@ describe Activity do
     it { should have_many(:plans).through(:activity_plans) }
   end
 
-  context 'longitude and latitude should be calculated after creation' do
-    it 'has nil coordinates before creation' do
-      activity.longitude.should be_nil
-      activity.latitude.should  be_nil
-    end
+  context "before save callbacks" do
+    let(:activity) { build(:activity, :city => "undefined",
+                           :state => "undefined", :title => "undefined") }
 
-    it 'has populated coordinates before creation' do
-      activity.save
-      activity.longitude.should_not be_nil
-      activity.latitude.should_not  be_nil
-    end
-  end
-
-  context 'invalid address' do
-    let(:params) {  { :title    => "Study really hard",
-                      :street   => "askjdfajk",
-                      :meal     => 0 } }
-    let(:activity) {Activity.new(params) }
-    it "raises an invalid address error" do
+    it "undefined attributes are not saved to the database" do
       expect {
         activity.save
-      }.to raise_error(Exceptions::InvalidAddressError)
+      }.to change(activity, :title).from("undefined").to("")
+
+      expect {
+        activity.save
+      }.to_not change(activity, :latitude)
+
+      expect {
+        activity.save
+      }.to_not change(activity, :longitude)
     end
   end
-
-  context 'creating populates address details' do
-    let(:params) {  { :title    => "Study really hard",
-                      :street   => "Coit Tower",
-                      :meal     => 0 } }
-    let(:activity) {Activity.create(params) }
-
-    it { activity.street.should eq("1 Telegraph Hill Boulevard") }
-    it { activity.city.should eq("San Francisco") }
-    it { activity.state.should eq("CA") }
-    it { activity.zip_code.should eq(94133) }
-    it { activity.country.should eq("United States") }
-  end
-
 end
