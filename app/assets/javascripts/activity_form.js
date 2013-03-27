@@ -54,6 +54,6 @@ var form = {
   },
 
   isMeal: function() {
-    return $('div.switch-on').length == 1;
+    return $('#meal')[0].checked;
   }
 };

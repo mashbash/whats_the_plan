@@ -126,6 +126,17 @@ tr td a:hover {
 
 /*---- plan creation ----*/
 
+h1.page-title {
+  margin: 1em 0 0 0;
+}
+
+.plan-create {
+  position: relative;
+}
+
+#meal {
+  margin: 0 0.5em 0.4em 0.25em;
+}
 
 .activity-form {
   height: 4em;

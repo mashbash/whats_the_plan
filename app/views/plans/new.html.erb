@@ -1,22 +1,19 @@
-<h1>Discover activities for your next plan</h1>
-<form>
+<h1 class="page-title">Select activities for your next plan</h1>
+<form class="plan-create">
   <div class="activity-form">
       <input id="destination" class="input-field" name="destination" placeholder="Activity name (e.g. Coit Tower, mexican food)"
              type="text" />
       <input id="address" class="input-field" name="address" placeholder="Location (e.g. SF, Paris, Berlin)" type="text"/>
-
-    <div class="switch switch-label" data-on-label="Meal" data-off-label="Non Meal">
-      <input id="meal" name="meal" type="checkbox" value="1" />
-    </div>
-
+    
     <div class='activity-options'>
+      <input id="meal" name="meal" type="checkbox" />Is this a meal?
       <input class="btn btn-primary add-activity" name="commit" type="submit" value="Search for activities" />
     </div>
   </div>
 
   <div class="plan-builder">
     <div class="new-plan">
-      <h3>Your Plan</h3>
+      <h3>My Plan's Activities</h3>
       <div class="plan-creation">
         <input id="title" class="plan-title-field" name="title" placeholder="Plan title (e.g. My day in Paris)" type="text"/>
         <%= link_to "Create my plan!", '#', class: "btn btn-primary create-plan disabled" %>
