@@ -1,7 +1,7 @@
 <div class="span6 plan-activity-block">
   <h3 class="time-slot-title"><%= time_slot_title(index) %></h3>
   <div class="plan-activity-image">
-    <%= image_tag(activity.image_url) %>
+    <%= image_tag(activity.image_url, :size => '80x80') %>
   </div>
   <div class="plan-activity-details">
     <h3><%= title(activity) %></h3>
