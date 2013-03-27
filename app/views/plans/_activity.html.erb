@@ -8,4 +8,10 @@
     <p class="street-add"><%= street(activity) %></p>
     <p class="city-add"><%= city_state(activity) %></p>
   </div>
+  <div class="distance">
+    <% dist = distances_between_activities(@plan) %>
+    <% unless @plan.best_route[index+1].nil? %>
+      <div class="distance"><%= dist[index] %> mi <i class="icon-arrow-down"></i></div>
+    <% end %>
+  </div>  
 </div>

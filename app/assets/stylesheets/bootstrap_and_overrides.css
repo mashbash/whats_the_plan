@@ -268,7 +268,6 @@ input.error:focus {
   box-shadow: 0 0 5px red;
 }
 
-<<<<<<< HEAD
 /*---- Plans#show ----*/
 
 .plan-title {
@@ -290,6 +289,7 @@ div.plan-block {
   margin: 0 auto 2em auto;
   padding: 1em;
   border-radius: 6px;
+  position: relative;
 }
 
 .time-slot-title {
@@ -319,18 +319,7 @@ div.plan-block {
   margin-bottom: 0.3em;
 }
 
-.one-activity:nth-child(odd) {
-  background: #B2DBFF;
-  border: 1px solid #DDE5ED;
-}
-
-.one-activity:nth-child(even) {
-  background: #FFD6B2;
-  border: 1px solid #DDE5ED;
-}
-
-
-/*.plan-activity-block:nth-child(odd) {
+.plan-activity-block:nth-child(odd) {
   background: #B2DBFF;
   border: 1px solid #DDE5ED;
 }
@@ -338,7 +327,7 @@ div.plan-block {
 .plan-activity-block:nth-child(even) {
   background: #FFD6B2;
   border: 1px solid #DDE5ED;
-}*/
+}
 
 .side-bar {
   display: inline-block;
@@ -404,4 +393,13 @@ div.plan-block {
   position: relative;
   display: inline-block;
   top: 16px;
+}
+
+.distance {
+/*  border: 1px solid grey;*/
+  position: absolute;
+  width: 120px;
+  left: 130px;
+  top: 84px;
+  font-size: 1.1em;
 }

@@ -49,7 +49,6 @@ var queryResult = {
   activityListener: function() {
     var self = this;
     $('.search-results').on('click', '.add-to-plan', function(e){
-      debugger
       e.preventDefault();
       var newActivity = self.find($(this).parents('.activity-block').data('id'));
       plan.add(self.find($(this).parents('.activity-block').data('id')));
