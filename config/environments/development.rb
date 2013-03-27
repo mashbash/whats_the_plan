@@ -39,7 +39,7 @@ WhatsThePlan::Application.configure do
   # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
   # yelp_data = YAML.load_file(APP_ROOT.join('config', 'settings.yml'))
-  ENV_MAX_DISTANCE = 20
+  ENV_MAX_DISTANCE = 10
 
   yelp_data = YAML.load_file("#{::Rails.root}/config/settings.yml")
   ENV['CONSUMER_KEY']    = yelp_data['CONSUMER_KEY']
