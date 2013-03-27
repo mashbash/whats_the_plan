@@ -100,13 +100,12 @@ Activity.prototype.parseAddress = function(results) {
     };
   }
   this.street = this.updateStreet();
-  this.city   = this.updateCity();
   this.triggerGeocode();
 };
 
 Activity.prototype.triggerGeocode = function() {
   var $element = $(".search-results .activity-block[data-id='" + this.id + "']");
-  $element.trigger("geocoded", {street: this.street, city: this.city});
+  $element.trigger("geocoded", {street: this.street, city: this.updateCity()});
 };
 
 Activity.prototype.setImage = function(image) {

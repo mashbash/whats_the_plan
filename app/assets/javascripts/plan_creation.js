@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-  $('#title').focus();
+  $('#destination').focus();
   form.init();
   plan.init();
   queryResult.init();

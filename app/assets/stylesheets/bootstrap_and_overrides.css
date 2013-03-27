@@ -203,6 +203,12 @@ input.plan-title-field {
   display: inline-block;
   height: 2.3em;
   line-height: 2.3em;
+  background: #0C2542;
+}
+
+.new-plan .btn.create-plan:hover {
+  background: white;
+  color: #0C2542;
 }
 
 .plan-creation {
@@ -217,6 +223,18 @@ input.plan-title-field {
 
 .yelp-search {
   font-size: 0.8em;
+}
+
+.yelp-label {
+  margin-top: 0.8em;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.yelp-label img {
+  margin-bottom: 0.5em;
+  margin-left: 0.2;
+
 }
 
 .btn.create-plan.disabled {
@@ -302,10 +320,15 @@ input.plan-title-field {
 }
 
 .new-close-icon {
+  color: #0C2542;
   float: right;
   text-decoration: none;
   background: #fff;
   padding: 0.2em;
+}
+
+.new-close-icon:hover {
+  text-decoration: none;
 }
 
 .activity-icon {
