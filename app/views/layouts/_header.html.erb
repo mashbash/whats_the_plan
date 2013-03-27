@@ -4,8 +4,9 @@
     <ul class='nav'>
       <li><%= link_to "What's the Plan?", root_path, class: "brand" %></li>
       <% if current_user %>
-      <li><%= link_to "Your Profile", user_path(current_user) %></li>
+        <li><%= link_to "Your Profile", user_path(current_user) %></li>
       <% end %>
+      <li><%= link_to "Browse plans", plans_path %></li>
       <li><%= link_to "Create a plan!", new_plan_path %></li>
     </ul>
     <ul class='nav pull-right'>
@@ -13,8 +14,8 @@
         <li><%= link_to 'Log Out', destroy_user_session_path, :method => :delete %></li>
       <% else %>
         <li><%= link_to 'Sign Up', new_user_registration_path, class: "show-signup" %></li>
-        <li><%= link_to 'Sign In', new_user_session_path , class: "show-signin" %>  </li>    
-      <% end %>  
+        <li><%= link_to 'Sign In', new_user_session_path , class: "show-signin" %>  </li>
+      <% end %>
     </ul>
     </div>
   </div>

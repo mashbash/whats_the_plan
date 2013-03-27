@@ -1,10 +1,10 @@
 <h1>Discover activities for your next plan</h1>
-<form>  
+<form>
   <div class="activity-form">
-      <input id="destination" class="input-field" name="destination" placeholder="Destination name (e.g. Coit Tower, steak dinner)" 
+      <input id="destination" class="input-field" name="destination" placeholder="Activity name (e.g. Coit Tower, mexican food)"
              type="text" />
       <input id="address" class="input-field" name="address" placeholder="Location (e.g. SF, Paris, Berlin)" type="text"/>
-    
+
     <div class="switch switch-label" data-on-label="Meal" data-off-label="Non Meal">
       <input id="meal" name="meal" type="checkbox" value="1" />
     </div>
@@ -20,12 +20,12 @@
       <div class="plan-creation">
         <input id="title" class="plan-title-field" name="title" placeholder="Plan title (e.g. My day in Paris)" type="text"/>
         <%= link_to "Create my plan!", '#', class: "btn btn-primary create-plan disabled" %>
-      </div>      
+      </div>
     </div>
 
     <div class="search-results">
       <h3>Search Results</h3>
     </div>
-  </div>  
+  </div>
 </form>
 
