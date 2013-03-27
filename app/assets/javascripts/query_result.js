@@ -38,12 +38,10 @@ var queryResult = {
     $('.yelp-label').remove();
     $('.search-results .activity-block').remove();
     for (i in this.activities) {
-
       if (this.activities[i].id == 1) {
         this.$body.append(JST["templates/yelp_label"]());
       }
       this.$body.append(this.activities[i].renderSearch());
-
     }
   },
 
