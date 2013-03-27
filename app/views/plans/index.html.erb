@@ -1,17 +1,48 @@
-  <% if current_user %>
-  <h3 class="welcome-message" >
-    Welcome, <%= current_user.name %>!
-  </h3>
-<% end %>   
+<body class="homepage-berlin">
 
-<h1>Recently Added Plans</h1>
+  <div class="source-image">
+    <img src="/assets/berlin.jpg" />
+  </div>
 
-<div class="listofplans">
-  <ul>
-  <% if @plans %>
-    <% @plans.last(13).reverse.each do  |plan| %>
-    <li><%= link_to plan.title, plan_path(plan) %></li>
-    <% end %>
-  <% end %>    
-  </ul>
-</div>
+  <div id="left-side"></div>
+  <i class="icon-angle-left icon-x" ></i>
+
+  <div id="right-side"></div>
+  <i class="icon-angle-right icon-x" ></i>
+
+    <h1 class="home-header">This small snippet completely explains how <br>
+         our app works. All possible questions will be answered!</h1>
+
+    <div class="listofplans">
+      <div class="berlin-plans">
+        <h3>For inspiration check out other peoples plans</h3>
+        <ul>
+          <li><%= link_to 'Ryans amazing Berlin plan', "http://localhost:3000/plans/100" %></li>
+          <li><%= link_to 'Nigels great plan', "http://localhost:3000/plans/100" %></li>
+          <li><%= link_to 'Justins awesome plan', "http://localhost:3000/plans/100" %></li>
+          <li><%= link_to 'Bastis Berlin boring plan', "http://localhost:3000/plans/100" %></li>
+        </ul>  
+      </div>
+
+      <div class="singapur-plans">
+        <h3>For inspiration check out other peoples plans</h3>
+        <ul>
+          <li><%= link_to 'Ryans amazing Singapur plan', "http://localhost:3000/plans/100" %></li>
+          <li><%= link_to 'Nigels great plan', "http://localhost:3000/plans/100" %></li>
+          <li><%= link_to 'Justins awesome plan', "http://localhost:3000/plans/100" %></li>
+          <li><%= link_to 'Bastis boring Singapur plan', "http://localhost:3000/plans/100" %></li>
+        </ul>  
+      </div>
+
+      <div class="sanfrancisco-plans">
+        <h3>For inspiration check out other peoples plans</h3>
+        <ul>
+          <li><%= link_to 'Ryans amazing San Francisco plan', "http://localhost:3000/plans/100" %></li>
+          <li><%= link_to 'Nigels great plan', "http://localhost:3000/plans/100" %></li>
+          <li><%= link_to 'Justins awesome plan', "http://localhost:3000/plans/100" %></li>
+          <li><%= link_to 'Bastis boring Singapur plan', "http://localhost:3000/plans/100" %></li>
+        </ul>  
+      </div>
+    </div>
+
+</body>

@@ -10,6 +10,7 @@ gem "font-awesome-rails"
 gem 'sidekiq'
 gem "oauth-plugin", "~> 0.4.0"
 gem 'gmaps4rails'
+gem 'jquery-ui-rails'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
