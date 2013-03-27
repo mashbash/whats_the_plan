@@ -9,7 +9,7 @@ class Activity < ActiveRecord::Base
   has_many :activity_plans
   has_many :plans, :through => :activity_plans, :inverse_of => :activities
 
-  before_save :scrub_attributes
+  before_create :scrub_attributes
   before_create :check_lat_long_present
   geocoded_by :full_address
 
