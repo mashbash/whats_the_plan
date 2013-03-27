@@ -8,7 +8,14 @@
     <% end %>
   </div>
   <div class="plan-activity-details">
-    <h3>Placeholder</h3>
-    <p class="city-add">Placeholder</p>
+    <% if (index % 2).zero? %>
+      <h3>Open Time Slot - Do Something Fun!</h3>
+      <!-- <p class="city-add"><%#= @plan.location %></p> -->
+      <p class="city-add"><%= "San Francisco (make me dynamic in the view)" %></p>
+    <% else %>
+      <h3>Open Time Slot - Don't Forget to Eat!</h3>
+      <!-- <p class="city-add"><%#= @plan.location %></p> -->
+      <p class="city-add"><%= "San Francisco (make me dynamic in the view)" %></p>
+    <% end %>
   </div>
 </div>
