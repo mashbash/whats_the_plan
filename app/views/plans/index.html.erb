@@ -1,7 +1,9 @@
 <body class="homepage-berlin">
 
   <div class="source-image">
-    <img src="/assets/berlin.jpg" />
+    <img id="berlin" class="opaque" src="/assets/berlin.jpg" />
+    <img id="singapur" src="/assets/singapur.jpg" /> 
+    <img id="san-francisco" src="/assets/sanfrancisco.jpg" />
   </div>
 
   <div id="left-side"></div>
@@ -14,7 +16,7 @@
          our app works. All possible questions will be answered!</h1>
 
     <div class="listofplans">
-      <div class="berlin-plans">
+      <div id="berlin-plans">
         <h3>For inspiration check out other peoples plans</h3>
         <ul>
           <li><%= link_to 'Ryans amazing Berlin plan', "http://localhost:3000/plans/100" %></li>
@@ -24,7 +26,7 @@
         </ul>  
       </div>
 
-      <div class="singapur-plans">
+      <div id="singapur-plans">
         <h3>For inspiration check out other peoples plans</h3>
         <ul>
           <li><%= link_to 'Ryans amazing Singapur plan', "http://localhost:3000/plans/100" %></li>
@@ -34,7 +36,7 @@
         </ul>  
       </div>
 
-      <div class="sanfrancisco-plans">
+      <div id="san-francisco-plans">
         <h3>For inspiration check out other peoples plans</h3>
         <ul>
           <li><%= link_to 'Ryans amazing San Francisco plan', "http://localhost:3000/plans/100" %></li>

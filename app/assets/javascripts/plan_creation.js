@@ -3,6 +3,7 @@ jQuery(document).ready(function($) {
   form.init();
   plan.init();
   queryResult.init();
+  homepage.init();
 
   $('tr.row-link').on('click', function(){
     var linkTo = $(this).find('td a').attr('href');
