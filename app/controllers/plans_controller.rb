@@ -23,7 +23,7 @@ class PlansController < ApplicationController
   def show
     @plan = Plan.find(params[:id])
     if @plan && @plan.sequenced
-      @show_plans = Plan.where('title != ?', @plan.title)
+      @nearby_plans = Plan.nearby_plans(@plan)
     else
       render 'processing'
     end  

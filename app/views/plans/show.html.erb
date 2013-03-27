@@ -26,7 +26,7 @@
     <h4>Other nearby plans</h4>
       <div>
         <ul>
-          <% @show_plans.each do |plan| %>
+          <% @nearby_plans.each do |plan| %>
             <li><%= link_to "#{plan.title} (#{city(plan)})", plan_path(plan) %></li>
           <% end %>
         </ul>

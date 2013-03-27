@@ -23,7 +23,7 @@ class Plan < ActiveRecord::Base
     route.length == ActivityCluster::MAX_ROUTE_LENGTH ? route : pad(route)
   end
 
-  # private
+  private
   def create_sequence
     PlanWorker.perform_async(self.id)
   end
