@@ -1,6 +1,6 @@
 <div class="plan-block">
   <div class="activities">
-    <% @plan.best_route.each_with_index do |activity, index| %>
+    <% @best_route.each_with_index do |activity, index| %>
       <% if activity %>
         <%= render 'activity', :activity => activity, :index => index %>
       <% else %>
@@ -13,7 +13,7 @@
 <div class="side-bar">
   <div class="show-map">
     <h4>Map out your activities</h4>
-    <%= map(@plan.best_route) %>
+    <%= map(@best_route) %>
   </div>
 
   <div class="other-plans">
@@ -21,7 +21,7 @@
       <div>
         <ul>
           <% @nearby_plans.each do |plan| %>
-            <li><%= link_to "#{plan.title} (#{city(plan)})", plan_path(plan) %></li>
+            <li><%= link_to "#{plan.title} (#{plan.city})", plan_path(plan) %></li>
           <% end %>
         </ul>
       </div>
