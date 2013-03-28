@@ -6,7 +6,7 @@
       <% if current_user %>
         <li><%= link_to "Your Profile", user_path(current_user) %></li>
       <% end %>
-      <li><%= link_to "Browse plans", plans_path %></li>
+      <li><%= link_to "Browse plans", root_path %></li>
       <li><%= link_to "Create a plan!", new_plan_path %></li>
     </ul>
     <ul class='nav pull-right'>

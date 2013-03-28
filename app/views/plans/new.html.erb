@@ -4,9 +4,9 @@
       <input id="destination" class="input-field" name="destination" placeholder="Activity name (e.g. Coit Tower, mexican food)"
              type="text" />
       <input id="address" class="input-field" name="address" placeholder="Location (e.g. SF, Paris, Berlin)" type="text"/>
-    
+
     <div class='activity-options'>
-      <input id="meal" name="meal" type="checkbox" />Is this a meal?
+      <input id="meal" name="meal" type="checkbox" />Is this a restaurant?
       <input class="btn btn-primary add-activity" name="commit" type="submit" value="Search for activities" />
     </div>
   </div>
@@ -26,23 +26,4 @@
   </div>
 </form>
 
-<div class="demo">
-  <div class="clear">
-    <div class="demo-title">
-      <h2>Let's Make A Plan!</h2>
-    </div>
-    <div class="steps">
-      <h3>1. Find Things To Do</h3>
-        <p>Enter an activity or meal and its location</p>
-    </div>
-    <div class="steps">
-      <h3>2. Add It To Your Plan</h3>
-        <p>Click "Search for activities", then add a search result to your plan</p>
-    </div>
-    <div class="steps">
-      <h3>3. We Do The Rest!</h3>
-        <p>Click "Create my plan" and we'll automagically find a plan that minimizes your travel time</p>
-    </div>  
-  </div>
-</div>
-
+<%= render 'demo' %>

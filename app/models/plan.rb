@@ -7,7 +7,7 @@ class Plan < ActiveRecord::Base
   validates :title, :presence => true
   validate  :end_date_before_start_date
 
-  belongs_to :user 
+  belongs_to :user
   has_many :activity_plans
   has_many :activities, :through => :activity_plans, :inverse_of => :plans
   accepts_nested_attributes_for :activities
@@ -23,13 +23,13 @@ class Plan < ActiveRecord::Base
     route = Activity.joins(:activity_plans).
                      where(:id => activity_plans.chosen.pluck(:activity_id)).
                      order(:sequence).all
-                     
+
     route.length == ActivityCluster::MAX_ROUTE_LENGTH ? route : pad(route)
   end
 
   private
   def create_sequence
-    PlanWorker.perform_async(self.id)
+    PlanWorker.perform_in(3.seconds, self.id)
   end
 
   def end_date_before_start_date

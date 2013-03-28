@@ -325,7 +325,7 @@ input.error:focus {
 }
 
 .demo{
-  margin-top: 15em;
+  margin-top: 5em;
   background: rgba(181, 192, 201, .4);
   width: 90%;
   height: 40%;
@@ -334,37 +334,44 @@ input.error:focus {
 }
 
 .demo-title {
-  background: rgba(151, 161, 168, .4);
+  background: rgba(12, 37, 66, .8);
+  color: #fff;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-}
-
-.steps h3 {
-  margin-top: 0;
-  background: rgba(225, 232, 237, .4);
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px; 
-  border-bottom: 1px gray dotted;
-  text-align: center;
+  padding: 0.25em 0;
 }
 
 .steps {
-  background: rgba(240, 240, 240, .5);
+  background: #C3CEE8;
   border: 1px dotted gray;
   display: inline-block;
-  margin: 1em 1em 2em 0;
+  margin: 2em 1em 2em 0;
   border-radius: 5px;
-  height: 12em;
-  width: 20em;
+  height: 11em;
+  width: 22em;
   vertical-align: top;
 }
 
+.steps h3 {
+  color: #0C2542;
+  margin-top: 0;
+  background: #9CA7FF;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: 1px gray dotted;
+  text-align: center;
+  font-size: 1.5em;
+}
+
 .steps p {
+  color: #0C2542;
   text-align: left;
-  padding-bottom: 2px;
-  padding-left: 8px;
-  font-size: 1.50em;
-  line-height: 1.4em;
+  font-size: 1.3em;
+  font-weight: bold;
+  margin: 0.5em 0.3em;
+  padding: 0.5em;
+  border-radius: 5px;
+
 }
 
 /*---- Plans#show ----*/

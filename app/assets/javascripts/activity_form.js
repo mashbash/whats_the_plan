@@ -3,18 +3,20 @@ var form = {
     this.destination = $('#destination');
     this.address = $('#address');
     this.listen();
+    $('.plan-builder').hide();
   },
 
   listen: function() {
     var self = this;
     $('.add-activity').on('click', function(e){
       e.preventDefault();
-      $('.demo').remove();
+      $('.demo').hide();
+      $('.plan-builder').fadeIn();
       if (self.invalid()) return false
 
       $('.search-results .activity-block').remove();
       queryResult.reset();
-      $('div.new-plan, .create-plan').show();
+      $('div.new-plan, .create-plan').fadeIn();
       self.yelpFetch();
       self.geocode();  //==>  Uncomment line 33 to only return geocode results if no yelp results
       self.reset();
