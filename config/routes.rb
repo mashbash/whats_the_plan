@@ -5,4 +5,5 @@ WhatsThePlan::Application.routes.draw do
   root :to     => 'plans#index'
   post '/yelp' => 'yelp_queries#create'
   get 'plans/:id/refresh' => 'plans#refresh'
+  match '*path' => 'not_found#show'
 end
