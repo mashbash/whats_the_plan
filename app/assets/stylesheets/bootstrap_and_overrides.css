@@ -132,8 +132,14 @@ ul.plan-header, ul.past-plan-header {
   color: #0C2542;
 }
 
-.plan-list.table tbody tr:hover td{ background-color: #EFFFED; }
-.plan-list.table tbody tr:hover th{ background-color: #DBFFB2; }
+.plan-list.table tbody tr:hover td { 
+  background-color: #EFFFED; 
+  cursor: pointer;
+}
+.plan-list.table tbody tr:hover th { 
+  background-color: #DBFFB2; 
+  cursor: pointer;
+}
 
 .past-plan-list.table tbody tr:hover td{ background-color: #FCECDE; }
 .past-plan-list.table tbody tr:hover th{ background-color: #FFD6B2; }
@@ -149,6 +155,11 @@ tr td a:hover {
   padding-left: 3em;
   margin: 0;
   width: 90%;
+}
+
+.stan {
+  position: fixed;
+  margin-left: 300px;
 }
 
 /*---- Plans#index ----*/
