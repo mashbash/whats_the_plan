@@ -1,44 +1,16 @@
 var homepage = {
+  images: ['berlin', 'singapur', 'san-francisco'],
+  imageIndex: 0,
   init: function() {
-    $('#singapur-plans').hide();
-    $('#san-francisco-plans').hide();
+    this.displayImage();
+
     $('.icon-angle-right').on('click', function(){
       clearInterval(interval);
-      if ($('#berlin').hasClass('opaque')) {
-        $('#berlin').removeClass('opaque');
-        $('#singapur').addClass('opaque');
-        $('#berlin-plans').hide('slow');
-        $('#singapur-plans').show('slow');
-      } else if ($('#singapur').hasClass('opaque')) {
-        $('#singapur').removeClass('opaque');
-        $('#san-francisco').addClass('opaque');
-        $('#singapur-plans').hide('slow');
-        $('#san-francisco-plans').show('slow');
-      } else if ($('#san-francisco').hasClass('opaque')) {
-        $('#san-francisco').removeClass('opaque');
-        $('#berlin').addClass('opaque');
-        $('#san-francisco-plans').hide('slow');
-        $('#berlin-plans').show('slow');
-      }; 
+      homepage.displayNextImage();
     });
     $('.icon-angle-left').on('click', function(){
       clearInterval(interval);
-      if ($('#berlin').hasClass('opaque')) {
-        $('#berlin').removeClass('opaque');
-        $('#san-francisco').addClass('opaque');
-        $('#berlin-plans').hide('slow');
-        $('#san-francisco-plans').show('slow');
-      } else if ($('#singapur').hasClass('opaque')) {
-        $('#singapur').removeClass('opaque');
-        $('#berlin').addClass('opaque');
-        $('#singapur-plans').hide('slow');
-        $('#berlin-plans').show('slow');
-      } else if ($('#san-francisco').hasClass('opaque')) {
-        $('#san-francisco').removeClass('opaque');
-        $('#singapur').addClass('opaque');
-        $('#san-francisco-plans').hide('slow');
-        $('#singapur-plans').show('slow');
-      }; 
+      homepage.displayPreviousImage();
     });
 
     var interval = 0;
@@ -48,9 +20,47 @@ var homepage = {
 
     function callFunc(){
       $('.icon-angle-right').trigger('click');
+      interval = setInterval(callFunc, 4000);
     }
+  },
+
+  displayNextImage: function() {
+    this.setImageIndex('next');
+    this.displayImage();
+  },
+
+  displayPreviousImage: function() {
+    this.setImageIndex('previous');
+    this.displayImage();
+  },
+
+  displayImage: function() {
+    var image = this.images[this.imageIndex]
+    $('.source-image').append(this.imageTemplate(image));
+    $('.source-image img:hidden').fadeIn('slow', function() {
+      $('.'+image).siblings('img').remove();
+    });
+    $('.listofplans .city-plans').remove();
+    $('.listofplans').append(this.textTemplate());
+    $('.listofplans').fadeIn('slow', function() {
+    });
+  },
+
+  setImageIndex: function(direction) {
+    if(direction == 'next') {
+      this.imageIndex++;
+      if(this.imageIndex == this.images.length) this.imageIndex = 0;
+    } else if(direction == 'previous') {
+      this.imageIndex--;
+      if(this.imageIndex == -1) this.imageIndex = this.images.length-1;     
+    }
+  },
+  imageTemplate: function(name) {
+    return '<img class="'+name+'" src="/assets/'+name+'.jpg">' 
+  },
+
+  textTemplate: function() {
+    template = "templates/index_page_text_" + this.imageIndex
+    return JST[template]();
   }
 };
-
-
-
