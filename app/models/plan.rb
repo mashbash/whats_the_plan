@@ -20,8 +20,6 @@ class Plan < ActiveRecord::Base
   end
 
   def best_route
-    best_activities = Activity.find(self.best_route_ids)
-
     self.best_route_ids.map do |id|
       best_activities.find { |activity| activity.id == id } if id
     end
@@ -41,5 +39,9 @@ class Plan < ActiveRecord::Base
   def default_dates
     self.start_date = Date.today
     self.end_date = Date.tomorrow
+  end
+
+  def best_activities
+    Activity.find(self.best_route_ids)
   end
 end
