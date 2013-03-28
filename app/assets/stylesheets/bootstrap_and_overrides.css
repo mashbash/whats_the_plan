@@ -26,15 +26,15 @@
 
 .berlin {
   z-index: -10;
-} 
+}
 
 .singapur {
   z-index: -10;
-} 
+}
 
 .san-francisco {
   z-index: -10;
-} 
+}
 
 body {
   padding-top: 40px;
@@ -145,7 +145,6 @@ tr td a:hover {
 .row {
   border-radius: 5px;
   background: rgba(181, 192, 201, .4);
-  background: ;
   padding-top: 1em;
   padding-left: 3em;
   margin: 0;
