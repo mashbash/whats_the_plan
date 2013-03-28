@@ -9,6 +9,7 @@ gem "font-awesome-rails"
 gem 'sidekiq'
 gem "oauth-plugin", "~> 0.4.0"
 gem 'gmaps4rails'
+gem 'thin'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'
@@ -26,7 +27,6 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'debugger'
-  gem 'thin'
 end
 
 group :test do
