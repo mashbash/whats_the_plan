@@ -24,7 +24,7 @@ module PlansHelper
             { "data"      =>
               { "from" => best_route.first.gmaps_string,
                 "to"   => best_route.last.gmaps_string},
-                "options" => {"waypoints" => waypoints(best_route), "travelMode" => "DRIVING", 
+                "options" => {"waypoints" => waypoints(best_route), "travelMode" => "DRIVING",
                               "avoidHighways" => TRUE} }
           })
   end
@@ -34,8 +34,8 @@ module PlansHelper
     user.plans.each do |plan|
       cities << plan.city
     end
-      
-  end  
+
+  end
 
   def waypoints(best_route)
     waypoints = best_route[1..-2].map do |activity|
@@ -43,18 +43,14 @@ module PlansHelper
     end
   end
 
-  def city(plan)
-    plan.activities.first.city
-  end
-
-  def distances_between_activities(plan)
-    coords = coordinates(plan.best_route.include?(nil) ? plan.best_route.compact! : plan.best_route )
+  def distances_between_activities(best_route)
+    coords = coordinates(best_route.include?(nil) ? best_route.compact : best_route )
     distances = []
     (coords.length - 1).times do |i|
       distances << (distance_between(coords[i], coords[i+1]) * 1.2).round(1)
     end
     distances
-  end  
+  end
 
   def coordinates(route)
     route.map { |activity| activity.to_coordinates }

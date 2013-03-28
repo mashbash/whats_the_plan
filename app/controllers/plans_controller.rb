@@ -23,10 +23,16 @@ class PlansController < ApplicationController
   def show
     @plan = Plan.find(params[:id])
     if @plan && @plan.sequenced
+      @best_route = @plan.best_route
       @nearby_plans = Plan.nearby_plans(@plan)
     else
       render 'processing'
-    end  
+    end
+  end
+
+  def refresh
+    @plan = Plan.find(params[:id])
+    render :json => { :sequenced => @plan && @plan.sequenced }
   end
 end
 

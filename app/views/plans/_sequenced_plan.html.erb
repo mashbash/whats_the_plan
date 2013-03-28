@@ -1,0 +1,29 @@
+<div class="plan-block">
+  <div class="activities">
+    <% @best_route.each_with_index do |activity, index| %>
+      <% if activity %>
+        <%= render 'activity', :activity => activity, :index => index %>
+      <% else %>
+        <%= render 'placeholder', :index => index %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="side-bar">
+  <div class="show-map">
+    <h4>Map out your activities</h4>
+    <%= map(@best_route) %>
+  </div>
+
+  <div class="other-plans">
+    <h4>Other nearby plans</h4>
+      <div>
+        <ul>
+          <% @nearby_plans.each do |plan| %>
+            <li><%= link_to "#{plan.title} (#{plan.city})", plan_path(plan) %></li>
+          <% end %>
+        </ul>
+      </div>
+  </div>
+</div>

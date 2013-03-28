@@ -20,7 +20,7 @@ class Plan < ActiveRecord::Base
   end
 
   def best_route
-    route = Plan.joins(:activity_plans).where(:id => activity_plans).order(:sequence)
+    route = self.activities.where("sequence IS NOT NULL").order(:sequence)
 
     route.length == ActivityCluster::MAX_ROUTE_LENGTH ? route : pad(route)
   end

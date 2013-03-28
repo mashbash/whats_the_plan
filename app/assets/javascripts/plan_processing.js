@@ -1,5 +1,22 @@
-function doneProcessing() {
-  if ($('h1#processing').html()=="Calculating best route! Page will load in a few seconds.") {
-    window.location.reload(true);
-  }
+var planProcessor = {
+  showRegex: new RegExp(/\/plans\/\d+$/),
+
+  init: function(location) {
+    if ( this.showRegex.test(location) && $('h1#processing').length > 0 ) {
+      this.pollPlans();
+    }
+  },
+
+  pollPlans: function() {
+    console.log("inside polling");
+    var self = this;
+    var path = window.location.pathname;
+    $.get(path + "/refresh", function(data){
+      if (data.sequenced) {
+        window.location.href = path
+      } else {
+        setTimeout(planProcessor.pollPlans, 1000);
+      }
+    });
+  },
 }
