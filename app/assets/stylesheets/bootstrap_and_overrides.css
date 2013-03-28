@@ -12,6 +12,10 @@ body {
   font-family: 'Roboto Condensed', sans-serif;
 }
 
+#appname {
+  font-family: 'Fjalla One', sans-serif;
+}
+
 .navbar-inner {
   background-color: #0C2542 !important;
   background-image: none !important;
@@ -107,6 +111,16 @@ ul.plan-header, ul.past-plan-header {
 
 tr td a:hover {
   text-decoration: none;
+}
+
+.row {
+  border-radius: 5px;
+  background: rgba(181, 192, 201, .4);
+  background: ;
+  padding-top: 1em;
+  padding-left: 3em;
+  margin: 0;
+  width: 90%;
 }
 
 /*---- Plans#index ----*/

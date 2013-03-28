@@ -4,7 +4,7 @@ jQuery(document).ready(function($) {
   plan.init();
   queryResult.init();
 
-  $('tr').on('click', function(){
+  $('tr.row-link').on('click', function(){
     var linkTo = $(this).find('td a').attr('href');
     window.location.href = linkTo;
   });
