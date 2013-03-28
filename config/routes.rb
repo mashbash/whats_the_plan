@@ -5,4 +5,8 @@ WhatsThePlan::Application.routes.draw do
   root :to     => 'plans#index'
   post '/yelp' => 'yelp_queries#create'
   get 'plans/:id/refresh' => 'plans#refresh'
+
+  require 'sidekiq/web'
+
+  mount Sidekiq::Web, at: '/sidekiq'
 end

@@ -1,8 +1,8 @@
 class Plan < ActiveRecord::Base
-
   NEARBY_PLANS = 8
-
-  attr_accessible :start_date, :end_date, :title, :city, :sequenced, :activities_attributes
+  attr_accessible :start_date, :end_date, :title, :city, :sequenced, :activities_attributes,
+                  :best_route_ids
+  serialize :best_route_ids
 
   validates :title, :presence => true
   validate  :end_date_before_start_date
@@ -20,29 +20,21 @@ class Plan < ActiveRecord::Base
   end
 
   def best_route
-    route = self.activities.where("sequence IS NOT NULL").order(:sequence)
+    best_activities = Activity.find(best_route_ids)
 
-    route.length == ActivityCluster::MAX_ROUTE_LENGTH ? route : pad(route)
+    best_route_ids.map do |id|
+      best_activities.find { |activity| activity.id == id } if id
+    end
   end
 
   private
   def create_sequence
-    PlanWorker.perform_in(3.seconds, self.id)
+    PlanWorker.perform_async(self.id)
   end
 
   def end_date_before_start_date
     if self.end_date && self.start_date && self.end_date < self.start_date
       errors.add(:start_date, "End date cannot be earlier than start date")
-    end
-  end
-
-  def activity_sequence(activity)
-    self.activity_plans.where(:activity_id => activity.id).first.sequence
-  end
-
-  def pad(activities)
-    (1..ActivityCluster::MAX_ROUTE_LENGTH).map do |n|
-      activities.find { |activity| activity_sequence(activity) == n }
     end
   end
 

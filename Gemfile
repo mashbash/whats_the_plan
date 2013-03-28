@@ -20,6 +20,9 @@ end
 
 group :development do
   gem 'quiet_assets'
+  gem 'sidekiq'
+  gem 'sinatra', require: false
+  gem 'slim'
 end
 
 group :development, :test do
