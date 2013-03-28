@@ -58,8 +58,10 @@ var homepage = {
       if(this.imageIndex == -1) this.imageIndex = this.images.length-1;
     }
   },
+
   imageTemplate: function(name) {
-    return '<img class="'+name+'" src="/assets/'+name+'.jpg">'
+    var imageLink = this.image_links[this.imageIndex]
+    return '<img class="'+name+'" src="' + imageLink + '">'
   },
 
   textTemplate: function() {
