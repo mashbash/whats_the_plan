@@ -1,10 +1,14 @@
 var homepage = {
+
   images:      ['berlin', 'singapur', 'san-francisco'],
   image_links: ['https://s3-us-west-1.amazonaws.com/wtpphotos/berlin.jpg',
                 'https://s3-us-west-1.amazonaws.com/wtpphotos/singapur.jpg',
                 'https://s3-us-west-1.amazonaws.com/wtpphotos/san-francisco.jpg'],
   imageIndex: 0,
+
   init: function() {
+    if (location.pathname !== "/") return
+
     this.displayImage();
 
     $('.icon-angle-right').on('click', function(){
