@@ -183,6 +183,7 @@ tr td a:hover {
 /*---- Plans#index ----*/
 
 .listofplans {
+  position: absolute;
   margin-top: 4em;
   display: none;
   float: left;
@@ -192,6 +193,7 @@ tr td a:hover {
   background: rgba(84, 84, 84, .6);
   color: white;
   z-index: 1000000;
+  left: 20em;
 }
 
 .listofplans li {
@@ -224,7 +226,7 @@ tr td a:hover {
   display: none;
   float: right;
   padding-right: 2%;
-  font-size: 24em;
+  font-size: 18em;
   color:  white;
 }
 
@@ -248,7 +250,7 @@ tr td a:hover {
   display: none;
   float: left;
   padding-left: 2%;
-  font-size: 24em;
+  font-size: 18em;
   color:  white;
 }
 
