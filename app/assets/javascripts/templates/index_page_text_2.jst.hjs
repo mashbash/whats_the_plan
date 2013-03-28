@@ -1,15 +1,15 @@
 <div class="city-plans">
-  <h3>For inspiration check out other plans for San Francisco</h3>
+  <h3>For inspiration check out other plans in the USA</h3>
   <ul>
     <li>
-      <a href="http://localhost:3000/plans/100">Ryans amazing San Frtancisco plan</a>
+      <a href="http://www.whatstheplan.co/plans/65">A Boot's typical day</a>
     </li>
     <li>
-      <a href="http://localhost:3000/plans/100">Nigels great plan</a></li>
+      <a href="http://www.whatstheplan.co/plans/53">Relaxing in Napa</a></li>
     </li>
     <li>
-      <a href="http://localhost:3000/plans/100"><a href="http://localhost:3000/plans/100">Justins amazongplan</a>
+      <a href="http://www.whatstheplan.co/plans/1">Game Day in Pittsburgh</a>
+      <a href="http://www.whatstheplan.co/plans/new" class="btn btn-primary btn-large btn-danger btn-main-page">Create your own plan</a>
     </li>
-    <li><a href="http://localhost:3000/plans/100">Bastis San Francisco plan</a></li>
   </ul>  
 </div>

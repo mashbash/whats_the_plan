@@ -5,11 +5,11 @@ gem 'pg'
 gem 'geocoder'
 gem 'redis'
 gem 'handlebars-rails', :git => 'git://github.com/kolo/handlebars-rails.git'
-gem 'thin'
 gem "font-awesome-rails"
 gem 'sidekiq'
 gem "oauth-plugin", "~> 0.4.0"
 gem 'gmaps4rails'
+gem 'thin'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'

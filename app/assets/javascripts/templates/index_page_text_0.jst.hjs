@@ -1,15 +1,16 @@
 <div class="city-plans">
-  <h3>For inspiration check out other plans for Berlin</h3>
+  <h3>For inspiration check out other plans for Germany</h3>
   <ul>
     <li>
-      <a href="http://localhost:3000/plans/100">Ryans amazing Berlin plan</a>
+      <a href="http://www.whatstheplan.co/plans/13">My Day in Berlin</a></li>
     </li>
     <li>
-      <a href="http://localhost:3000/plans/100">Nigels great plan</a></li>
+      <a href="http://www.whatstheplan.co/plans/56">Oktoberfest in Munich</a>
     </li>
     <li>
-      <a href="http://localhost:3000/plans/100"><a href="http://localhost:3000/plans/100">Nigels great plan</a>
+      <a href="http://www.whatstheplan.co/plans/58">Crazy day in Hamburg</a>
+      <a href="http://www.whatstheplan.co/plans/new" class="btn btn-primary btn-large btn-danger btn-main-page">Create your own plan</a>
     </li>
-    <li><a href="http://localhost:3000/plans/100">Bastis Berlin plan</a></li>
-  </ul>  
+      
+    </ul> 
 </div>

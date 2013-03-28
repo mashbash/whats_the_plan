@@ -20,6 +20,6 @@ test:
 
 production:
   adapter: postgresql
-  database: whats_the_plan
+  database: whats_the_plan_dev
   pool: 5
   timeout: 5000

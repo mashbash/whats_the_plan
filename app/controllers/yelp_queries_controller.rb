@@ -2,10 +2,13 @@ class YelpQueriesController < ApplicationController
   respond_to :json
 
   def create
-    @query = YelpQuery.new
-    @results = YelpResult.load(@query.fetch!(params[:query]))
-    # @results = YelpResult.load(mock_dumplings)
-    render :json => { :results => @results }
+    @query = YelpQuery.new.fetch!(params[:query])
+    if @query.has_key?("error")
+      render :json => { :results => @query }
+    else
+      # render :json => { :results => YelpResult.load(mock_dumplings) }
+      render :json => { :results => YelpResult.load(@query["businesses"].first(5)) }
+    end
   end
 
   def mock_dumplings

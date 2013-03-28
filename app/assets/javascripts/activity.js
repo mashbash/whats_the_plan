@@ -115,12 +115,3 @@ Activity.prototype.setImage = function(image) {
     return image;
   }
 };
-
-Activity.prototype.setImage = function(image) {
-  if (image == undefined) {
-    return "http://" + this.destination.replace(/\s+/g, '') + ".jpg.to/icon"
-  } else {
-    return image;
-  }
-};
-
