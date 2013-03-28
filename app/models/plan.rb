@@ -20,9 +20,9 @@ class Plan < ActiveRecord::Base
   end
 
   def best_route
-    best_activities = Activity.find(best_route_ids)
+    best_activities = Activity.find(self.best_route_ids)
 
-    best_route_ids.map do |id|
+    self.best_route_ids.map do |id|
       best_activities.find { |activity| activity.id == id } if id
     end
   end
