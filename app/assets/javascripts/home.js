@@ -69,7 +69,6 @@ var homepage = {
   },
 
   textTemplate: function() {
-    // debugger
     template = "templates/index_page_text_" + this.imageIndex
     return JST[template]();
   }
