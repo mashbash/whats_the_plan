@@ -301,6 +301,12 @@ input.plan-title-field {
   text-align: center;
 }
 
+.gmaps-label {
+  margin: 0.8em 0 0.5em 0;
+  font-size: 1.5em;
+  text-align: center;
+}
+
 .yelp-label img {
   margin-bottom: 0.5em;
   margin-left: 0.2;
