@@ -31,11 +31,7 @@ class PlansController < ApplicationController
 
   def refresh
     @plan = Plan.find(params[:id])
-    if @plan && @plan.sequenced
-      render :json => { :sequenced => true }
-    else
-      render :json => { :sequenced => false }
-    end
+    render :json => { :sequenced => @plan && @plan.sequenced }
   end
 end
 

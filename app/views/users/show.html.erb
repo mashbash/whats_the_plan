@@ -5,7 +5,7 @@
 </div>
 
 <div class="row">
-  <div class="span5 offset1 user-plans">
+  <div class="span5 user-plans"> <!-- offset1 -->
     <ul class="plan-header">
       <h3>Upcoming plans:</h3>
     </ul>
@@ -15,7 +15,7 @@
       </tr>
       <tbody>
       <% @user.upcoming_plans.each do |plan| %>
-        <tr>
+        <tr class="row-link">
           <td><%= link_to plan.title, plan %></td>
         </tr>
       <% end %>

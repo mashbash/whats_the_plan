@@ -29,6 +29,14 @@ module PlansHelper
           })
   end
 
+  def user_map(user)
+    cities = []
+    user.plans.each do |plan|
+      cities << plan.city
+    end
+      
+  end  
+
   def waypoints(best_route)
     waypoints = best_route[1..-2].map do |activity|
       activity.gmaps_string

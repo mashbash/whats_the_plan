@@ -1,17 +1,17 @@
-  <% if current_user %>
-  <h3 class="welcome-message" >
-    Welcome, <%= current_user.name %>!
-  </h3>
-<% end %>   
+<div class="source-image"></div>
 
-<h1>Recently Added Plans</h1>
+<div id="left-side"></div>
+<i class="icon-angle-left icon-x" ></i>
 
-<div class="listofplans">
-  <ul>
-  <% if @plans %>
-    <% @plans.last(13).reverse.each do  |plan| %>
-    <li><%= link_to plan.title, plan_path(plan) %></li>
-    <% end %>
-  <% end %>    
-  </ul>
-</div>
+<div id="right-side"></div>
+<i class="icon-angle-right icon-x" ></i>
+
+  <h1 class="home-header">Welcome to What's the Plan?<br>
+       Spend less time planning and more time enjoying yourself!</h1>
+
+  <div class="listofplans">
+    
+  
+  </div>
+
+
