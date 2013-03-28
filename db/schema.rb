@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20130328044100) do
 
   add_index "activity_plans", ["activity_id"], :name => "index_activity_plans_on_activity_id"
   add_index "activity_plans", ["plan_id", "activity_id"], :name => "index_activity_plans_on_plan_id_and_activity_id"
+  add_index "activity_plans", ["plan_id"], :name => "index_activity_plans_on_plan_id"
 
   create_table "plans", :force => true do |t|
     t.integer "user_id"
