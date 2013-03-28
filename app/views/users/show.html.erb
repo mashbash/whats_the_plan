@@ -1,45 +1,43 @@
-<div class='profile-welcome offset1'>
-<h1> Hey, <%= @user.name %>! </h1>
-<h4> You have <%= pluralize(@user.upcoming_plans.length, 'plan') %> coming up! </h4>
-<h4> You have <%= pluralize(@user.past_plans.length, 'past plan') %>, <%= link_to "create more!", new_plan_path%></h4>
-</div>
-
-<div class="row">
-  <div class="span5 user-plans"> <!-- offset1 -->
-    <ul class="plan-header">
-      <h3>Upcoming plans:</h3>
-    </ul>
-    <table class="plan-list table table-hover">
-      <tr>
-        <th> Plan Name </th>
-      </tr>
-      <tbody>
-      <% @user.upcoming_plans.each do |plan| %>
-        <tr class="row-link">
-          <td><%= link_to plan.title, plan %></td>
-        </tr>
-      <% end %>
-      </tbody>  
-    </table>  
+  <div class='profile-welcome offset1'>
+  <h1> Hey, <%= @user.name %>! </h1>
+  <h4> You have <%= pluralize(@user.upcoming_plans.length, 'plan') %> coming up! </h4>
+  <h4> You have <%= pluralize(@user.past_plans.length, 'past plan') %>, <%= link_to "create more!", new_plan_path%></h4>
   </div>
 
-  <div class="span5 user-past-plans">
-    <ul class="past-plan-header">
-      <h3>Past plans:</h3>
-    </ul>
-    <table class="past-plan-list table table-hover">
-      <tr>
-        <th> Plan Name </th>
-      </tr>
-      <tbody>  
-      <% @user.past_plans.each do |plan| %>
+  <div class="row">
+    <div class="span5 user-plans"> <!-- offset1 -->
+      <ul class="plan-header">
+        <h3>Upcoming plans:</h3>
+      </ul>
+      <table class="plan-list table table-hover">
         <tr>
-          <td><%= link_to plan.title, plan %></td>
-        </tr>  
-      <% end %>  
-      </tbody>  
-    </table>
+          <th> Plan Name </th>
+        </tr>
+        <tbody>
+        <% @user.upcoming_plans.each do |plan| %>
+          <tr class="row-link">
+            <td><%= link_to plan.title, plan %></td>
+          </tr>
+        <% end %>
+        </tbody>  
+      </table>  
+    </div>
+
+    <div class="span5 user-past-plans">
+      <ul class="past-plan-header">
+        <h3>Past plans:</h3>
+      </ul>
+      <table class="past-plan-list table table-hover">
+        <tr>
+          <th> Plan Name </th>
+        </tr>
+        <tbody>  
+        <% @user.past_plans.each do |plan| %>
+          <tr>
+            <td><%= link_to plan.title, plan %></td>
+          </tr>  
+        <% end %>  
+        </tbody>  
+      </table>
+    </div>
   </div>
-</div>
-
-

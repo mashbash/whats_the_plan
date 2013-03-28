@@ -15,7 +15,7 @@ var planProcessor = {
       if (data.sequenced) {
         window.location.href = path
       } else {
-        setTimeout(planProcessor.pollPlans, 1000);
+        setTimeout(planProcessor.pollPlans, 3000);
       }
     });
   },

@@ -26,15 +26,15 @@
 
 .berlin {
   z-index: -10;
-} 
+}
 
 .singapur {
   z-index: -10;
-} 
+}
 
 .san-francisco {
   z-index: -10;
-} 
+}
 
 body {
   padding-top: 40px;
@@ -132,8 +132,14 @@ ul.plan-header, ul.past-plan-header {
   color: #0C2542;
 }
 
-.plan-list.table tbody tr:hover td{ background-color: #EFFFED; }
-.plan-list.table tbody tr:hover th{ background-color: #DBFFB2; }
+.plan-list.table tbody tr:hover td { 
+  background-color: #EFFFED; 
+  cursor: pointer;
+}
+.plan-list.table tbody tr:hover th { 
+  background-color: #DBFFB2; 
+  cursor: pointer;
+}
 
 .past-plan-list.table tbody tr:hover td{ background-color: #FCECDE; }
 .past-plan-list.table tbody tr:hover th{ background-color: #FFD6B2; }
@@ -145,11 +151,15 @@ tr td a:hover {
 .row {
   border-radius: 5px;
   background: rgba(181, 192, 201, .4);
-  background: ;
   padding-top: 1em;
   padding-left: 3em;
   margin: 0;
   width: 90%;
+}
+
+.stan {
+  position: fixed;
+  margin-left: 300px;
 }
 
 /*---- Plans#index ----*/
@@ -298,6 +308,12 @@ input.plan-title-field {
 
 .yelp-label {
   margin-top: 0.8em;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.gmaps-label {
+  margin: 0.8em 0 0.5em 0;
   font-size: 1.5em;
   text-align: center;
 }

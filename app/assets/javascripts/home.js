@@ -1,5 +1,8 @@
 var homepage = {
-  images: ['berlin', 'singapur', 'san-francisco'],
+  images:      ['berlin', 'singapur', 'san-francisco'],
+  image_links: ['https://s3-us-west-1.amazonaws.com/wtpphotos/berlin.jpg',
+                'https://s3-us-west-1.amazonaws.com/wtpphotos/singapur.jpg',
+                'https://s3-us-west-1.amazonaws.com/wtpphotos/san-francisco.jpg'],
   imageIndex: 0,
   init: function() {
     this.displayImage();
@@ -52,11 +55,13 @@ var homepage = {
       if(this.imageIndex == this.images.length) this.imageIndex = 0;
     } else if(direction == 'previous') {
       this.imageIndex--;
-      if(this.imageIndex == -1) this.imageIndex = this.images.length-1;     
+      if(this.imageIndex == -1) this.imageIndex = this.images.length-1;
     }
   },
+
   imageTemplate: function(name) {
-    return '<img class="'+name+'" src="/assets/'+name+'.jpg">' 
+    var imageLink = this.image_links[this.imageIndex]
+    return '<img class="'+name+'" src="' + imageLink + '">'
   },
 
   textTemplate: function() {

@@ -17,8 +17,7 @@ var form = {
       $('.search-results .activity-block').remove();
       queryResult.reset();
       $('div.new-plan, .create-plan').fadeIn();
-      self.yelpFetch();
-      self.geocode();  //==>  Uncomment line 33 to only return geocode results if no yelp results
+      self.fetch();
       self.reset();
     });
   },
@@ -29,12 +28,14 @@ var form = {
     queryResult.add(newActivity);
   },
 
-  yelpFetch: function() {
+  fetch: function() {
     var self = this;
+    self.geocode();
+
     var searchTerms = { destination: self.destination.val(), address: self.address.val() };
     $.post("/yelp", {query: searchTerms}).done(function(data){
-      // if (data.results.length == 0) self.geocode();
       queryResult.load(data.results, self.isMeal());
+      queryResult.render();
     });
   },
 
@@ -51,7 +52,6 @@ var form = {
   },
 
   reset: function() {
-    // $('#destination, #address').val("");
     $('#destination').focus();
     $('input').removeClass('error');
   },

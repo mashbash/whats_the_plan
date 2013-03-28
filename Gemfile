@@ -20,6 +20,7 @@ end
 
 group :development do
   gem 'quiet_assets'
+  gem 'sidekiq'
 end
 
 group :development, :test do

@@ -14,13 +14,11 @@ var queryResult = {
       activity.meal = isMeal;
       this.activities.push(activity);
     }
-    this.render();
   },
 
   add: function(activity) {
     activity.id = this.activities.length;
     this.activities.push(activity);
-    this.render();
   },
 
   remove: function(id) {
@@ -35,14 +33,15 @@ var queryResult = {
   },
 
   render: function() {
-    $('.yelp-label').remove();
-    $('.search-results .activity-block').remove();
-    for (i in this.activities) {
-      if (this.activities[i].id == 1) {
-        this.$body.append(JST["templates/yelp_label"]());
-      }
+    $('.search-results .activity-block, .yelp-label, .gmaps-label').remove();
+
+    this.$body.append(JST["templates/yelp_label"]());
+    for (var i = 1; i < this.activities.length; i++) {
       this.$body.append(this.activities[i].renderSearch());
     }
+
+    this.$body.append(JST["templates/geocoder_label"]());
+    this.$body.append(this.activities[0].renderSearch());
     $('a[href=""]').addClass('disabled');
   },
 
