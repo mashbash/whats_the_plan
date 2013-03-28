@@ -1,5 +1,5 @@
 class NotFoundController < ApplicationController
   def show
-    render :text => "Page not found"
+    render 'layouts/not_found'
   end
 end
