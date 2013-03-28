@@ -8,10 +8,10 @@ var planProcessor = {
   },
 
   pollPlans: function() {
-    console.log("inside polling");
     var self = this;
     var path = window.location.pathname;
     $.get(path + "/refresh", function(data){
+
       if (data.sequenced) {
         window.location.href = path
       } else {

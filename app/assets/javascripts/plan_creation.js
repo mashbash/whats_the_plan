@@ -6,7 +6,7 @@ jQuery(document).ready(function($) {
   plan.init();
   queryResult.init();
 
-  planProcessor.init();
+  planProcessor.init(window.location.pathname);
 
   $('tr.row-link').on('click', function(){
     var linkTo = $(this).find('td a').attr('href');
