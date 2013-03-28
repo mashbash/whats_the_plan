@@ -5,8 +5,7 @@ class YelpQuery
   end
 
   def fetch!(criteria)
-    data = @access_token.get(path(criteria)).body
-    JSON.parse(data)["businesses"].first(5)
+    JSON.parse(@access_token.get(path(criteria)).body)
   end
 
   private

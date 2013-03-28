@@ -45,6 +45,11 @@ var queryResult = {
     $('a[href=""]').addClass('disabled');
   },
 
+  renderNoResults: function() {
+    $('.search-results .activity-block, .yelp-label, .gmaps-label').remove();
+    this.$body.append(JST["templates/no_results"]());
+  },
+
   activityListener: function() {
     var self = this;
     $('.search-results').on('click', '.add-to-plan', function(e){

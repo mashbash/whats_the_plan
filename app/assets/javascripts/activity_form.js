@@ -34,8 +34,12 @@ var form = {
 
     var searchTerms = { destination: self.destination.val(), address: self.address.val() };
     $.post("/yelp", {query: searchTerms}).done(function(data){
-      queryResult.load(data.results, self.isMeal());
-      queryResult.render();
+      if (data.results.error == undefined) {
+        queryResult.load(data.results, self.isMeal());
+        queryResult.render();
+      } else {
+        queryResult.renderNoResults();
+      }
     });
   },
 
