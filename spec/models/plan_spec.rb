@@ -37,14 +37,19 @@ describe Plan do
 
   context '#best_route' do
     let(:plan) { create(:plan_with_activities) }
+    let(:plan_worker) { PlanWorker.new}
 
     it { should respond_to(:best_route) }
 
     it 'returns an array of activities' do
+      plan_worker.perform(plan.id)
+      plan.reload
       plan.best_route.should be_an(Array)
     end
 
     it 'returns a four element array' do
+      plan_worker.perform(plan.id)
+      plan.reload
       plan.best_route.length.should eq(4)
     end
 
@@ -52,19 +57,18 @@ describe Plan do
       let(:plan) { create(:plan_with_activities) }
 
       it 'all elements are Activities' do
-        plan_worker = PlanWorker.new
         plan_worker.perform(plan.id)
-        plan.best_route.each do |element|
-          element.should be_an(Activity)
-        end
+        plan.reload
+        # plan.best_route.should be_all { |e| e.is_an? Activity }
+        plan.best_route.all? { |e| e.is_a?(Activity) }.should be_true
       end
     end
 
     context 'all meals' do
       let(:plan) { create(:plan_with_all_meals) }
       it 'elements are nil then activity' do
-        plan_worker = PlanWorker.new
         plan_worker.perform(plan.id)
+        plan.reload
         plan.best_route.map {|element| element.class}.
           should eq([NilClass, Activity, NilClass, Activity])
       end
@@ -73,8 +77,8 @@ describe Plan do
     context 'no meals' do
       let(:plan) { create(:plan_with_no_meals) }
       it 'elements are activity then nil' do
-        plan_worker = PlanWorker.new
         plan_worker.perform(plan.id)
+        plan.reload
         plan.best_route.map {|element| element.class}.
           should eq([Activity, NilClass, Activity, NilClass])
       end
@@ -85,7 +89,6 @@ describe Plan do
 
       it 'sets sequence to true when finished' do
         plan.sequenced.should be_false
-        plan_worker = PlanWorker.new
         plan_worker.perform(plan.id)
         plan.reload
         plan.sequenced.should be_true
