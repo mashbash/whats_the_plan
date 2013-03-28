@@ -5,7 +5,6 @@ gem 'pg'
 gem 'geocoder'
 gem 'redis'
 gem 'handlebars-rails', :git => 'git://github.com/kolo/handlebars-rails.git'
-gem 'thin'
 gem "font-awesome-rails"
 gem 'sidekiq'
 gem "oauth-plugin", "~> 0.4.0"
@@ -27,6 +26,7 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'debugger'
+  gem 'thin'
 end
 
 group :test do
