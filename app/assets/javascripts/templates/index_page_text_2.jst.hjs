@@ -2,14 +2,14 @@
   <h3>For inspiration check out other plans for San Francisco</h3>
   <ul>
     <li>
-      <a href="http://localhost:3000/plans/100">Ryans amazing San Frtancisco plan</a>
-    </li>
-    <li>
       <a href="http://localhost:3000/plans/100">Nigels great plan</a></li>
     </li>
     <li>
       <a href="http://localhost:3000/plans/100"><a href="http://localhost:3000/plans/100">Justins amazongplan</a>
     </li>
-    <li><a href="http://localhost:3000/plans/100">Bastis San Francisco plan</a></li>
+    <li>
+      <a href="http://localhost:3000/plans/100">Bastis San Francisco plan</a>
+      <a href="http://www.whatstheplan.co/plans/new" class="btn btn-primary btn-large btn-danger btn-main-page">Create your own plan</a>
+    </li>
   </ul>  
 </div>
