@@ -1,6 +1,8 @@
 DevBootCamp Final Project
 =========================
 
+We have a live version at www.whatstheplan.co
+
 Travel app that takes activities the user inputs and clusters the closest 4 together in order of activity, meal, activity, meal. 
 Takes the work out of planning and let's you save time to enjoy the trip. 
 
