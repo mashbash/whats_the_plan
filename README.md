@@ -8,4 +8,4 @@ Takes the work out of planning and let's you save time to enjoy the trip.
 
 Used the geocoder api, google maps api, yelp api, along with sidekiq and redis for background jobs.
 
-My awesome teammates: [@justinsilverman]https://github.com/JustSilverman, [@moserrya]https://github.com/moserrya, [@twiek]https://github.com/twiek
+My awesome teammates: [@justinsilverman](https://github.com/JustSilverman), [@moserrya](https://github.com/moserrya), [@twiek](https://github.com/twiek)
